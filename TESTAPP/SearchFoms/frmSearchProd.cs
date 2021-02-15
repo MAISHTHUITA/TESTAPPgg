@@ -50,7 +50,7 @@ namespace SHOPLITE.SearchFoms
             }
             else
             {
-                product.ProdCd = dgvProds.SelectedRows[0].Cells[0].Value.ToString();
+                product.ProdCd = dgvProds.Rows[e.RowIndex].Cells[0].Value.ToString();
                 this.Close();
             }
         }
@@ -75,7 +75,7 @@ namespace SHOPLITE.SearchFoms
                 }
                 else
                 {
-                    product.ProdCd = dgvProds.CurrentRow.Cells[1].Value.ToString();
+                    product.ProdCd = dgvProds.CurrentRow.Cells[0].Value.ToString();
                     this.Close();
                 }
             }

@@ -579,7 +579,7 @@ namespace SHOPLITE
                     using (frmSearchProd su = new frmSearchProd(products) { product = new Product() })
                     {
                         su.ShowDialog();
-                        txtUnitCd.Text = su.product.ProdCd;
+                        prodCdTextBox.Text = su.product.ProdCd;
                     }
                 }
             }

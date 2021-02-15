@@ -123,7 +123,7 @@ namespace SHOPLITE.SearchFoms
             // 
             // Qty
             // 
-            this.Qty.DataPropertyName = "QtyAvbl";
+            this.Qty.DataPropertyName = "QtyAvble";
             this.Qty.HeaderText = "Qty Avai.";
             this.Qty.Name = "Qty";
             this.Qty.ReadOnly = true;
