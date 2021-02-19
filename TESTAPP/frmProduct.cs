@@ -280,7 +280,21 @@ namespace SHOPLITE
 
         private void button5_Click(object sender, EventArgs e)
         {
-
+            ProductRepository repository = new ProductRepository();
+            List<Product> products = repository.GetProducts().ToList();
+            if (products.Count == 0)
+            {
+                MessageBox.Show("No Records To Display.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            ReportDocument report = new ProductList();
+            report.SetDataSource(products);
+            report.SetParameterValue("@Company", "REHOBOTH ELECTRICALS");
+            report.SetParameterValue("@Branch", "REHOBOTH NAROK");
+            report.SetParameterValue("@Username", "ADMIN");
+            Form form = new frmPrint(report);
+            form.Text = "PRODUCT LIST";
+            form.Show();
         }
 
         private void btnNewSupp_Click(object sender, EventArgs e)
@@ -535,7 +549,9 @@ namespace SHOPLITE
        {
             if (String.IsNullOrEmpty(prodCdTextBox.Text))
             {
+                Intializetextboxes();
                 return;
+                
             }
             ProductRepository repository = new ProductRepository();
             Product product = repository.GetProduct(prodCdTextBox.Text);
@@ -562,14 +578,14 @@ namespace SHOPLITE
             SupTextBox.Text = UnitTextBox.Text = qtyAvbleTextBox.Text = qtyOnOrderTextBox.Text = "";
             isActiveCheckBox.Checked = true;
         }
-
+        
         private void prodCdTextBox_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.F3)
             {
                 ProductRepository repository = new ProductRepository();
                 List<Product> products = repository.GetProducts().ToList();
-                if (products.Count == 0)
+                if (products.Count <= 0)
                 {
                     MessageBox.Show("No Records to Display.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;

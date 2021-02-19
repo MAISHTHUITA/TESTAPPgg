@@ -58,8 +58,30 @@ namespace SHOPLITE
             lblBranch.Text = Properties.Settings.Default.BRANCHNAME;
             lblCompany.Text = Properties.Settings.Default.COMPANYNAME;
             lblUser.Text = Properties.Settings.Default.USERNAME;
-            lblLogindate.Text = DateTime.Now.ToShortDateString();
+            lblLogindate.Text = DateTime.Now.ToString("dd-MMM-yyyy");
             lblVersion.Text = Application.ProductVersion.ToString();
+            Form form = frmDashboard.Instance;
+            form.TopLevel = false;
+            MainPanel.Controls.Add(form);
+            form.BringToFront();
+            form.Show();
+        }
+
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            base.OnFormClosing(e);
+            base.OnFormClosing(e);
+            if (e.CloseReason == CloseReason.WindowsShutDown) return;
+
+            // Confirm user wants to close
+            switch (MessageBox.Show(this, "Are you sure you want to close?", "Closing", MessageBoxButtons.YesNo))
+            {
+                case DialogResult.No:
+                    e.Cancel = true;
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }

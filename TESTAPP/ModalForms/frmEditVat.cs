@@ -21,7 +21,19 @@ namespace SHOPLITE.ModalForms
             txtVatCode.Text = vat1.VatCd;
             txtVatPercentage.Text = vat1.VatPercentage.ToString();
         }
-
+        /// <summary>
+        /// Making sure only digits are entered.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void txt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char ch = e.KeyChar;
+            if (!Char.IsDigit(ch) && ch != 8)
+            {
+                e.Handled = true;
+            }
+        }
         private void btnSave_Click(object sender, EventArgs e)
         {
             VatRepository repository = new VatRepository();

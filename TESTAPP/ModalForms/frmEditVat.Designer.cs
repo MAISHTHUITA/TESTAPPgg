@@ -62,6 +62,7 @@ namespace SHOPLITE.ModalForms
             this.txtVatPercentage.Name = "txtVatPercentage";
             this.txtVatPercentage.Size = new System.Drawing.Size(254, 20);
             this.txtVatPercentage.TabIndex = 5;
+            this.txtVatPercentage.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_KeyPress);
             // 
             // txtVatCode
             // 

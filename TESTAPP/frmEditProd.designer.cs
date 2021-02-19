@@ -198,6 +198,7 @@ namespace SHOPLITE
             // 
             this.SupTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.SupTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.SupTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SupTextBox.Location = new System.Drawing.Point(130, 160);
             this.SupTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.SupTextBox.Name = "SupTextBox";
@@ -208,6 +209,7 @@ namespace SHOPLITE
             // 
             this.deptTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.deptTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.deptTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.deptTextBox.Location = new System.Drawing.Point(390, 125);
             this.deptTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.deptTextBox.Name = "deptTextBox";
@@ -218,6 +220,7 @@ namespace SHOPLITE
             // 
             this.UnitTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.UnitTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.UnitTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UnitTextBox.Location = new System.Drawing.Point(130, 129);
             this.UnitTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.UnitTextBox.Name = "UnitTextBox";
@@ -228,6 +231,7 @@ namespace SHOPLITE
             // 
             this.VatTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.VatTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.VatTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.VatTextBox.Location = new System.Drawing.Point(359, 226);
             this.VatTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.VatTextBox.Name = "VatTextBox";
@@ -238,38 +242,45 @@ namespace SHOPLITE
             // 
             this.spTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.spTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.spTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.spTextBox.Location = new System.Drawing.Point(390, 98);
             this.spTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.spTextBox.Name = "spTextBox";
             this.spTextBox.Size = new System.Drawing.Size(107, 23);
             this.spTextBox.TabIndex = 49;
+            this.spTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_KeyPress);
             // 
             // qtyOnOrderTextBox
             // 
             this.qtyOnOrderTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.qtyOnOrderTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.qtyOnOrderTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.qtyOnOrderTextBox.Location = new System.Drawing.Point(359, 195);
             this.qtyOnOrderTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.qtyOnOrderTextBox.Name = "qtyOnOrderTextBox";
             this.qtyOnOrderTextBox.ReadOnly = true;
             this.qtyOnOrderTextBox.Size = new System.Drawing.Size(136, 23);
             this.qtyOnOrderTextBox.TabIndex = 58;
+            this.qtyOnOrderTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_KeyPress);
             // 
             // qtyAvbleTextBox
             // 
             this.qtyAvbleTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.qtyAvbleTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.qtyAvbleTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.qtyAvbleTextBox.Location = new System.Drawing.Point(130, 195);
             this.qtyAvbleTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.qtyAvbleTextBox.Name = "qtyAvbleTextBox";
             this.qtyAvbleTextBox.ReadOnly = true;
             this.qtyAvbleTextBox.Size = new System.Drawing.Size(111, 23);
             this.qtyAvbleTextBox.TabIndex = 56;
+            this.qtyAvbleTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_KeyPress);
             // 
             // prodNmTextBox
             // 
             this.prodNmTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.prodNmTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.prodNmTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.prodNmTextBox.Location = new System.Drawing.Point(130, 67);
             this.prodNmTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.prodNmTextBox.Name = "prodNmTextBox";
@@ -291,17 +302,20 @@ namespace SHOPLITE
             // 
             this.cpTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.cpTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.cpTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cpTextBox.Location = new System.Drawing.Point(130, 98);
             this.cpTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.cpTextBox.Name = "cpTextBox";
             this.cpTextBox.ReadOnly = true;
             this.cpTextBox.Size = new System.Drawing.Size(155, 23);
             this.cpTextBox.TabIndex = 48;
+            this.cpTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_KeyPress);
             // 
             // prodCdTextBox
             // 
             this.prodCdTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.prodCdTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.prodCdTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.prodCdTextBox.Location = new System.Drawing.Point(130, 36);
             this.prodCdTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.prodCdTextBox.Name = "prodCdTextBox";
@@ -313,6 +327,7 @@ namespace SHOPLITE
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.PaleVioletRed;
             this.ClientSize = new System.Drawing.Size(518, 317);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);

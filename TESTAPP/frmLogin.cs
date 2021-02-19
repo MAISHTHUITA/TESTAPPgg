@@ -88,21 +88,21 @@ namespace SHOPLITE
         }
         private void getvalues()
         {
-            using (SqlConnection  con=new SqlConnection(DbCon.connection))
-            {
-                SqlCommand cmd = new SqlCommand("SpGetValues",con);
-                cmd.CommandType = CommandType.StoredProcedure;
-                if (con.State == ConnectionState.Closed) con.Open();
-                SqlDataReader rdr = cmd.ExecuteReader();
-                if (rdr.HasRows)
-                {
-                    while (rdr.Read())
-                    {
-                        Company = rdr["Company"].ToString();
-                        Branch = rdr["Branch"].ToString();
-                    }
-                }
-            }
+            //using (SqlConnection  con=new SqlConnection(DbCon.connection))
+            //{
+            //    SqlCommand cmd = new SqlCommand("SpGetValues",con);
+            //    cmd.CommandType = CommandType.StoredProcedure;
+            //    if (con.State == ConnectionState.Closed) con.Open();
+            //    SqlDataReader rdr = cmd.ExecuteReader();
+            //    if (rdr.HasRows)
+            //    {
+                   // while (rdr.Read())
+                   // {
+                        Company = "REHOBOTH ELECTRICALS";
+                        Branch = "REHOBOTH-NAROK BRANCH";
+            //        }
+            //    }
+            //}
         }
     }
 }

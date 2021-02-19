@@ -65,6 +65,7 @@ namespace SHOPLITE.ModalForms
             this.txtNewPrice.Name = "txtNewPrice";
             this.txtNewPrice.Size = new System.Drawing.Size(102, 20);
             this.txtNewPrice.TabIndex = 5;
+            this.txtNewPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_KeyPress);
             // 
             // label3
             // 
@@ -131,6 +132,7 @@ namespace SHOPLITE.ModalForms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightSalmon;
             this.ClientSize = new System.Drawing.Size(461, 184);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label4);

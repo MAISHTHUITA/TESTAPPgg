@@ -33,13 +33,13 @@ namespace SHOPLITE.SearchFoms
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvProds = new System.Windows.Forms.DataGridView();
-            this.txtSearchProd = new System.Windows.Forms.TextBox();
             this.ProdCd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProdNm = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UnitCd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cp = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Sp = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtSearchProd = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProds)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,7 +49,7 @@ namespace SHOPLITE.SearchFoms
             this.dgvProds.AllowUserToDeleteRows = false;
             this.dgvProds.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(206)))), ((int)(((byte)(234)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(66)))), ((int)(((byte)(251)))));
             this.dgvProds.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
@@ -83,7 +83,7 @@ namespace SHOPLITE.SearchFoms
             this.dgvProds.RowHeadersVisible = false;
             this.dgvProds.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(190)))), ((int)(((byte)(245)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(3);
             this.dgvProds.RowsDefaultCellStyle = dataGridViewCellStyle3;
@@ -92,16 +92,6 @@ namespace SHOPLITE.SearchFoms
             this.dgvProds.TabIndex = 5;
             this.dgvProds.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProds_CellContentDoubleClick);
             this.dgvProds.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvProds_KeyDown);
-            // 
-            // txtSearchProd
-            // 
-            this.txtSearchProd.Dock = System.Windows.Forms.DockStyle.Top;
-            this.txtSearchProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearchProd.Location = new System.Drawing.Point(0, 0);
-            this.txtSearchProd.Name = "txtSearchProd";
-            this.txtSearchProd.Size = new System.Drawing.Size(867, 24);
-            this.txtSearchProd.TabIndex = 4;
-            this.txtSearchProd.TextChanged += new System.EventHandler(this.txtSearchProd_TextChanged);
             // 
             // ProdCd
             // 
@@ -150,6 +140,16 @@ namespace SHOPLITE.SearchFoms
             this.Sp.Name = "Sp";
             this.Sp.ReadOnly = true;
             // 
+            // txtSearchProd
+            // 
+            this.txtSearchProd.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtSearchProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearchProd.Location = new System.Drawing.Point(0, 0);
+            this.txtSearchProd.Name = "txtSearchProd";
+            this.txtSearchProd.Size = new System.Drawing.Size(867, 24);
+            this.txtSearchProd.TabIndex = 4;
+            this.txtSearchProd.TextChanged += new System.EventHandler(this.txtSearchProd_TextChanged);
+            // 
             // frmSearchProd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -165,6 +165,7 @@ namespace SHOPLITE.SearchFoms
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Load += new System.EventHandler(this.frmSearchProd_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmSearchProd_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProds)).EndInit();
             this.ResumeLayout(false);

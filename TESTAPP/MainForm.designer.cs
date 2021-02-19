@@ -87,6 +87,8 @@ namespace SHOPLITE
             // lblLogindate
             // 
             this.lblLogindate.AutoSize = true;
+            this.lblLogindate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLogindate.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.lblLogindate.Location = new System.Drawing.Point(104, 8);
             this.lblLogindate.Name = "lblLogindate";
             this.lblLogindate.Size = new System.Drawing.Size(0, 13);
@@ -262,7 +264,7 @@ namespace SHOPLITE
             this.btnProducts.Font = new System.Drawing.Font("Lucida Fax", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProducts.Image = ((System.Drawing.Image)(resources.GetObject("btnProducts.Image")));
             this.btnProducts.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnProducts.Location = new System.Drawing.Point(12, 278);
+            this.btnProducts.Location = new System.Drawing.Point(12, 18);
             this.btnProducts.Name = "btnProducts";
             this.btnProducts.Size = new System.Drawing.Size(189, 46);
             this.btnProducts.TabIndex = 0;
@@ -328,7 +330,7 @@ namespace SHOPLITE
             this.btnDashboard.Font = new System.Drawing.Font("Lucida Fax", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDashboard.Image = ((System.Drawing.Image)(resources.GetObject("btnDashboard.Image")));
             this.btnDashboard.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDashboard.Location = new System.Drawing.Point(12, 18);
+            this.btnDashboard.Location = new System.Drawing.Point(15, 287);
             this.btnDashboard.Name = "btnDashboard";
             this.btnDashboard.Size = new System.Drawing.Size(189, 46);
             this.btnDashboard.TabIndex = 0;
@@ -357,11 +359,12 @@ namespace SHOPLITE
             this.Controls.Add(this.TopPanel);
             this.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "SHOP LITE";
+            this.Text = "SHOP LITE VERSION 2";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.BottomPanel.ResumeLayout(false);
             this.BottomPanel.PerformLayout();

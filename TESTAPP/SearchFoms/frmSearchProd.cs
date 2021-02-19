@@ -80,6 +80,10 @@ namespace SHOPLITE.SearchFoms
                 }
             }
         }
-    
+
+        private void frmSearchProd_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

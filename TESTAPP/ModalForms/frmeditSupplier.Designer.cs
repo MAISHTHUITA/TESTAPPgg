@@ -42,6 +42,7 @@ namespace SHOPLITE.ModalForms
             System.Windows.Forms.Label suppTelLabel;
             System.Windows.Forms.Label suppLimitDaysLabel;
             System.Windows.Forms.Label suppVatNoLabel;
+            System.Windows.Forms.Label label2;
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
@@ -79,25 +80,164 @@ namespace SHOPLITE.ModalForms
             suppTelLabel = new System.Windows.Forms.Label();
             suppLimitDaysLabel = new System.Windows.Forms.Label();
             suppVatNoLabel = new System.Windows.Forms.Label();
+            label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
+            // 
+            // suppCdLabel
+            // 
+            suppCdLabel.AutoSize = true;
+            suppCdLabel.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            suppCdLabel.Location = new System.Drawing.Point(21, 26);
+            suppCdLabel.Name = "suppCdLabel";
+            suppCdLabel.Size = new System.Drawing.Size(95, 18);
+            suppCdLabel.TabIndex = 86;
+            suppCdLabel.Text = "Supplier Code";
+            // 
+            // suppCityLabel
+            // 
+            suppCityLabel.AutoSize = true;
+            suppCityLabel.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            suppCityLabel.Location = new System.Drawing.Point(270, 54);
+            suppCityLabel.Name = "suppCityLabel";
+            suppCityLabel.Size = new System.Drawing.Size(36, 18);
+            suppCityLabel.TabIndex = 87;
+            suppCityLabel.Text = "City:";
+            // 
+            // suppBoxLabel
+            // 
+            suppBoxLabel.AutoSize = true;
+            suppBoxLabel.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            suppBoxLabel.Location = new System.Drawing.Point(21, 54);
+            suppBoxLabel.Name = "suppBoxLabel";
+            suppBoxLabel.Size = new System.Drawing.Size(54, 18);
+            suppBoxLabel.TabIndex = 85;
+            suppBoxLabel.Text = "P.O Box";
+            // 
+            // suppCreditLimitLabel
+            // 
+            suppCreditLimitLabel.AutoSize = true;
+            suppCreditLimitLabel.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            suppCreditLimitLabel.Location = new System.Drawing.Point(270, 143);
+            suppCreditLimitLabel.Name = "suppCreditLimitLabel";
+            suppCreditLimitLabel.Size = new System.Drawing.Size(133, 18);
+            suppCreditLimitLabel.TabIndex = 88;
+            suppCreditLimitLabel.Text = "Credit Limit Amount";
+            // 
+            // suppPinCodeLabel
+            // 
+            suppPinCodeLabel.AutoSize = true;
+            suppPinCodeLabel.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            suppPinCodeLabel.Location = new System.Drawing.Point(23, 108);
+            suppPinCodeLabel.Name = "suppPinCodeLabel";
+            suppPinCodeLabel.Size = new System.Drawing.Size(63, 18);
+            suppPinCodeLabel.TabIndex = 95;
+            suppPinCodeLabel.Text = "Pin Code";
+            // 
+            // suppEmailLabel
+            // 
+            suppEmailLabel.AutoSize = true;
+            suppEmailLabel.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            suppEmailLabel.Location = new System.Drawing.Point(270, 108);
+            suppEmailLabel.Name = "suppEmailLabel";
+            suppEmailLabel.Size = new System.Drawing.Size(46, 18);
+            suppEmailLabel.TabIndex = 89;
+            suppEmailLabel.Text = "Email:";
+            // 
+            // suppNmLabel
+            // 
+            suppNmLabel.AutoSize = true;
+            suppNmLabel.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            suppNmLabel.Location = new System.Drawing.Point(270, 26);
+            suppNmLabel.Name = "suppNmLabel";
+            suppNmLabel.Size = new System.Drawing.Size(100, 18);
+            suppNmLabel.TabIndex = 93;
+            suppNmLabel.Text = "Supplier Name";
+            // 
+            // suppMobileLabel
+            // 
+            suppMobileLabel.AutoSize = true;
+            suppMobileLabel.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            suppMobileLabel.Location = new System.Drawing.Point(23, 182);
+            suppMobileLabel.Name = "suppMobileLabel";
+            suppMobileLabel.Size = new System.Drawing.Size(52, 18);
+            suppMobileLabel.TabIndex = 92;
+            suppMobileLabel.Text = "Mobile";
+            // 
+            // suppPaymentTermsLabel
+            // 
+            suppPaymentTermsLabel.AutoSize = true;
+            suppPaymentTermsLabel.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            suppPaymentTermsLabel.Location = new System.Drawing.Point(270, 215);
+            suppPaymentTermsLabel.Name = "suppPaymentTermsLabel";
+            suppPaymentTermsLabel.Size = new System.Drawing.Size(103, 18);
+            suppPaymentTermsLabel.TabIndex = 94;
+            suppPaymentTermsLabel.Text = "Payment Terms";
+            // 
+            // suppLocationLabel
+            // 
+            suppLocationLabel.AutoSize = true;
+            suppLocationLabel.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            suppLocationLabel.Location = new System.Drawing.Point(21, 81);
+            suppLocationLabel.Name = "suppLocationLabel";
+            suppLocationLabel.Size = new System.Drawing.Size(59, 18);
+            suppLocationLabel.TabIndex = 91;
+            suppLocationLabel.Text = "Location";
+            // 
+            // suppTelLabel
+            // 
+            suppTelLabel.AutoSize = true;
+            suppTelLabel.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            suppTelLabel.Location = new System.Drawing.Point(270, 81);
+            suppTelLabel.Name = "suppTelLabel";
+            suppTelLabel.Size = new System.Drawing.Size(74, 18);
+            suppTelLabel.TabIndex = 96;
+            suppTelLabel.Text = "Telephone";
+            // 
+            // suppLimitDaysLabel
+            // 
+            suppLimitDaysLabel.AutoSize = true;
+            suppLimitDaysLabel.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            suppLimitDaysLabel.Location = new System.Drawing.Point(23, 215);
+            suppLimitDaysLabel.Name = "suppLimitDaysLabel";
+            suppLimitDaysLabel.Size = new System.Drawing.Size(112, 18);
+            suppLimitDaysLabel.TabIndex = 90;
+            suppLimitDaysLabel.Text = "Credit Limit Days";
+            // 
+            // suppVatNoLabel
+            // 
+            suppVatNoLabel.AutoSize = true;
+            suppVatNoLabel.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            suppVatNoLabel.Location = new System.Drawing.Point(270, 182);
+            suppVatNoLabel.Name = "suppVatNoLabel";
+            suppVatNoLabel.Size = new System.Drawing.Size(79, 18);
+            suppVatNoLabel.TabIndex = 97;
+            suppVatNoLabel.Text = "Vat Reg. No";
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(349, 252);
+            this.btnCancel.BackColor = System.Drawing.Color.Yellow;
+            this.btnCancel.FlatAppearance.BorderColor = System.Drawing.Color.Blue;
+            this.btnCancel.FlatAppearance.BorderSize = 5;
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancel.Location = new System.Drawing.Point(369, 251);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 42);
             this.btnCancel.TabIndex = 84;
             this.btnCancel.Text = "CANCEL";
-            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.UseVisualStyleBackColor = false;
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(216, 252);
+            this.btnSave.BackColor = System.Drawing.Color.Lime;
+            this.btnSave.FlatAppearance.BorderColor = System.Drawing.Color.Blue;
+            this.btnSave.FlatAppearance.BorderSize = 5;
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSave.Location = new System.Drawing.Point(236, 251);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 42);
             this.btnSave.TabIndex = 83;
             this.btnSave.Text = "SAVE";
-            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // label9
@@ -212,38 +352,9 @@ namespace SHOPLITE.ModalForms
             this.label5.Text = "*";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // suppCdLabel
-            // 
-            suppCdLabel.AutoSize = true;
-            suppCdLabel.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            suppCdLabel.Location = new System.Drawing.Point(21, 26);
-            suppCdLabel.Name = "suppCdLabel";
-            suppCdLabel.Size = new System.Drawing.Size(95, 18);
-            suppCdLabel.TabIndex = 86;
-            suppCdLabel.Text = "Supplier Code";
-            // 
-            // suppCityLabel
-            // 
-            suppCityLabel.AutoSize = true;
-            suppCityLabel.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            suppCityLabel.Location = new System.Drawing.Point(270, 54);
-            suppCityLabel.Name = "suppCityLabel";
-            suppCityLabel.Size = new System.Drawing.Size(36, 18);
-            suppCityLabel.TabIndex = 87;
-            suppCityLabel.Text = "City:";
-            // 
-            // suppBoxLabel
-            // 
-            suppBoxLabel.AutoSize = true;
-            suppBoxLabel.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            suppBoxLabel.Location = new System.Drawing.Point(21, 54);
-            suppBoxLabel.Name = "suppBoxLabel";
-            suppBoxLabel.Size = new System.Drawing.Size(54, 18);
-            suppBoxLabel.TabIndex = 85;
-            suppBoxLabel.Text = "P.O Box";
-            // 
             // suppCityTextBox
             // 
+            this.suppCityTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.suppCityTextBox.Location = new System.Drawing.Point(426, 53);
             this.suppCityTextBox.Name = "suppCityTextBox";
             this.suppCityTextBox.Size = new System.Drawing.Size(200, 20);
@@ -251,23 +362,15 @@ namespace SHOPLITE.ModalForms
             // 
             // suppPinCodeTextBox
             // 
+            this.suppPinCodeTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.suppPinCodeTextBox.Location = new System.Drawing.Point(163, 107);
             this.suppPinCodeTextBox.Name = "suppPinCodeTextBox";
             this.suppPinCodeTextBox.Size = new System.Drawing.Size(101, 20);
             this.suppPinCodeTextBox.TabIndex = 75;
             // 
-            // suppCreditLimitLabel
-            // 
-            suppCreditLimitLabel.AutoSize = true;
-            suppCreditLimitLabel.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            suppCreditLimitLabel.Location = new System.Drawing.Point(270, 143);
-            suppCreditLimitLabel.Name = "suppCreditLimitLabel";
-            suppCreditLimitLabel.Size = new System.Drawing.Size(133, 18);
-            suppCreditLimitLabel.TabIndex = 88;
-            suppCreditLimitLabel.Text = "Credit Limit Amount";
-            // 
             // suppBoxTextBox
             // 
+            this.suppBoxTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.suppBoxTextBox.Location = new System.Drawing.Point(163, 53);
             this.suppBoxTextBox.Name = "suppBoxTextBox";
             this.suppBoxTextBox.Size = new System.Drawing.Size(101, 20);
@@ -275,34 +378,16 @@ namespace SHOPLITE.ModalForms
             // 
             // suppCreditLimitTextBox
             // 
+            this.suppCreditLimitTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.suppCreditLimitTextBox.Location = new System.Drawing.Point(426, 142);
             this.suppCreditLimitTextBox.Name = "suppCreditLimitTextBox";
             this.suppCreditLimitTextBox.Size = new System.Drawing.Size(200, 20);
             this.suppCreditLimitTextBox.TabIndex = 78;
-            this.suppCreditLimitTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.suppLimitDaysTextBox_KeyPress);
-            // 
-            // suppPinCodeLabel
-            // 
-            suppPinCodeLabel.AutoSize = true;
-            suppPinCodeLabel.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            suppPinCodeLabel.Location = new System.Drawing.Point(23, 108);
-            suppPinCodeLabel.Name = "suppPinCodeLabel";
-            suppPinCodeLabel.Size = new System.Drawing.Size(63, 18);
-            suppPinCodeLabel.TabIndex = 95;
-            suppPinCodeLabel.Text = "Pin Code";
-            // 
-            // suppEmailLabel
-            // 
-            suppEmailLabel.AutoSize = true;
-            suppEmailLabel.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            suppEmailLabel.Location = new System.Drawing.Point(270, 108);
-            suppEmailLabel.Name = "suppEmailLabel";
-            suppEmailLabel.Size = new System.Drawing.Size(46, 18);
-            suppEmailLabel.TabIndex = 89;
-            suppEmailLabel.Text = "Email:";
+            this.suppCreditLimitTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_KeyPress);
             // 
             // suppMobileTextBox
             // 
+            this.suppMobileTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.suppMobileTextBox.Location = new System.Drawing.Point(163, 181);
             this.suppMobileTextBox.Name = "suppMobileTextBox";
             this.suppMobileTextBox.Size = new System.Drawing.Size(101, 20);
@@ -310,6 +395,7 @@ namespace SHOPLITE.ModalForms
             // 
             // suppEmailTextBox
             // 
+            this.suppEmailTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.suppEmailTextBox.Location = new System.Drawing.Point(426, 107);
             this.suppEmailTextBox.Name = "suppEmailTextBox";
             this.suppEmailTextBox.Size = new System.Drawing.Size(200, 20);
@@ -317,50 +403,23 @@ namespace SHOPLITE.ModalForms
             // 
             // suppCdTextBox
             // 
+            this.suppCdTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.suppCdTextBox.Location = new System.Drawing.Point(163, 25);
             this.suppCdTextBox.Name = "suppCdTextBox";
             this.suppCdTextBox.Size = new System.Drawing.Size(101, 20);
             this.suppCdTextBox.TabIndex = 69;
             // 
-            // suppNmLabel
-            // 
-            suppNmLabel.AutoSize = true;
-            suppNmLabel.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            suppNmLabel.Location = new System.Drawing.Point(270, 26);
-            suppNmLabel.Name = "suppNmLabel";
-            suppNmLabel.Size = new System.Drawing.Size(100, 18);
-            suppNmLabel.TabIndex = 93;
-            suppNmLabel.Text = "Supplier Name";
-            // 
             // suppNmTextBox
             // 
+            this.suppNmTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.suppNmTextBox.Location = new System.Drawing.Point(426, 25);
             this.suppNmTextBox.Name = "suppNmTextBox";
             this.suppNmTextBox.Size = new System.Drawing.Size(284, 20);
             this.suppNmTextBox.TabIndex = 70;
             // 
-            // suppMobileLabel
-            // 
-            suppMobileLabel.AutoSize = true;
-            suppMobileLabel.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            suppMobileLabel.Location = new System.Drawing.Point(23, 182);
-            suppMobileLabel.Name = "suppMobileLabel";
-            suppMobileLabel.Size = new System.Drawing.Size(52, 18);
-            suppMobileLabel.TabIndex = 92;
-            suppMobileLabel.Text = "Mobile";
-            // 
-            // suppPaymentTermsLabel
-            // 
-            suppPaymentTermsLabel.AutoSize = true;
-            suppPaymentTermsLabel.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            suppPaymentTermsLabel.Location = new System.Drawing.Point(270, 215);
-            suppPaymentTermsLabel.Name = "suppPaymentTermsLabel";
-            suppPaymentTermsLabel.Size = new System.Drawing.Size(103, 18);
-            suppPaymentTermsLabel.TabIndex = 94;
-            suppPaymentTermsLabel.Text = "Payment Terms";
-            // 
             // suppLocationTextBox
             // 
+            this.suppLocationTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.suppLocationTextBox.Location = new System.Drawing.Point(163, 80);
             this.suppLocationTextBox.Name = "suppLocationTextBox";
             this.suppLocationTextBox.Size = new System.Drawing.Size(101, 20);
@@ -368,68 +427,32 @@ namespace SHOPLITE.ModalForms
             // 
             // suppPaymentTermsTextBox
             // 
+            this.suppPaymentTermsTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.suppPaymentTermsTextBox.Location = new System.Drawing.Point(426, 214);
             this.suppPaymentTermsTextBox.Name = "suppPaymentTermsTextBox";
             this.suppPaymentTermsTextBox.Size = new System.Drawing.Size(200, 20);
             this.suppPaymentTermsTextBox.TabIndex = 82;
             // 
-            // suppLocationLabel
-            // 
-            suppLocationLabel.AutoSize = true;
-            suppLocationLabel.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            suppLocationLabel.Location = new System.Drawing.Point(21, 81);
-            suppLocationLabel.Name = "suppLocationLabel";
-            suppLocationLabel.Size = new System.Drawing.Size(59, 18);
-            suppLocationLabel.TabIndex = 91;
-            suppLocationLabel.Text = "Location";
-            // 
-            // suppTelLabel
-            // 
-            suppTelLabel.AutoSize = true;
-            suppTelLabel.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            suppTelLabel.Location = new System.Drawing.Point(270, 81);
-            suppTelLabel.Name = "suppTelLabel";
-            suppTelLabel.Size = new System.Drawing.Size(74, 18);
-            suppTelLabel.TabIndex = 96;
-            suppTelLabel.Text = "Telephone";
-            // 
             // suppLimitDaysTextBox
             // 
+            this.suppLimitDaysTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.suppLimitDaysTextBox.Location = new System.Drawing.Point(163, 214);
             this.suppLimitDaysTextBox.Name = "suppLimitDaysTextBox";
             this.suppLimitDaysTextBox.Size = new System.Drawing.Size(101, 20);
             this.suppLimitDaysTextBox.TabIndex = 81;
-            this.suppLimitDaysTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.suppLimitDaysTextBox_KeyPress);
+            this.suppLimitDaysTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_KeyPress);
             // 
             // suppTelTextBox
             // 
+            this.suppTelTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.suppTelTextBox.Location = new System.Drawing.Point(426, 80);
             this.suppTelTextBox.Name = "suppTelTextBox";
             this.suppTelTextBox.Size = new System.Drawing.Size(200, 20);
             this.suppTelTextBox.TabIndex = 74;
             // 
-            // suppLimitDaysLabel
-            // 
-            suppLimitDaysLabel.AutoSize = true;
-            suppLimitDaysLabel.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            suppLimitDaysLabel.Location = new System.Drawing.Point(23, 215);
-            suppLimitDaysLabel.Name = "suppLimitDaysLabel";
-            suppLimitDaysLabel.Size = new System.Drawing.Size(112, 18);
-            suppLimitDaysLabel.TabIndex = 90;
-            suppLimitDaysLabel.Text = "Credit Limit Days";
-            // 
-            // suppVatNoLabel
-            // 
-            suppVatNoLabel.AutoSize = true;
-            suppVatNoLabel.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            suppVatNoLabel.Location = new System.Drawing.Point(270, 182);
-            suppVatNoLabel.Name = "suppVatNoLabel";
-            suppVatNoLabel.Size = new System.Drawing.Size(79, 18);
-            suppVatNoLabel.TabIndex = 97;
-            suppVatNoLabel.Text = "Vat Reg. No";
-            // 
             // suppFaxTextBox
             // 
+            this.suppFaxTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.suppFaxTextBox.Location = new System.Drawing.Point(163, 142);
             this.suppFaxTextBox.Name = "suppFaxTextBox";
             this.suppFaxTextBox.Size = new System.Drawing.Size(101, 20);
@@ -437,15 +460,27 @@ namespace SHOPLITE.ModalForms
             // 
             // suppVatNoTextBox
             // 
+            this.suppVatNoTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.suppVatNoTextBox.Location = new System.Drawing.Point(426, 181);
             this.suppVatNoTextBox.Name = "suppVatNoTextBox";
             this.suppVatNoTextBox.Size = new System.Drawing.Size(200, 20);
             this.suppVatNoTextBox.TabIndex = 80;
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label2.Location = new System.Drawing.Point(23, 142);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(31, 18);
+            label2.TabIndex = 92;
+            label2.Text = "FAX";
+            // 
             // frmeditSupplier
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightPink;
             this.ClientSize = new System.Drawing.Size(716, 305);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
@@ -472,6 +507,7 @@ namespace SHOPLITE.ModalForms
             this.Controls.Add(this.suppCdTextBox);
             this.Controls.Add(suppNmLabel);
             this.Controls.Add(this.suppNmTextBox);
+            this.Controls.Add(label2);
             this.Controls.Add(suppMobileLabel);
             this.Controls.Add(suppPaymentTermsLabel);
             this.Controls.Add(this.suppLocationTextBox);

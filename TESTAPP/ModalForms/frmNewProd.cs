@@ -17,6 +17,19 @@ namespace SHOPLITE.ModalForms
         {
             InitializeComponent();
         }
+        /// <summary>
+        /// Making sure only digits are entered.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void txt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char ch = e.KeyChar;
+            if (!Char.IsDigit(ch) && ch != 8)
+            {
+                e.Handled = true;
+            }
+        }
         public Product product1 { get; set; }
         private void btnSave_Click(object sender, EventArgs e)
         {

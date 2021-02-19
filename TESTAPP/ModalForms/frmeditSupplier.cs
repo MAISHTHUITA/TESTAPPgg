@@ -32,6 +32,19 @@ namespace SHOPLITE.ModalForms
             suppLimitDaysTextBox.Text = supplier.SuppLimitDays.ToString();
             suppVatNoTextBox.Text = supplier.SuppVatNo;
         }
+        /// <summary>
+        /// Making sure only digits are entered.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void txt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char ch = e.KeyChar;
+            if (!Char.IsDigit(ch) && ch != 8)
+            {
+                e.Handled = true;
+            }
+        }
         private void btnSave_Click(object sender, EventArgs e)
         {
 
@@ -114,11 +127,7 @@ namespace SHOPLITE.ModalForms
 
         private void suppLimitDaysTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            char ch = e.KeyChar;
-            if (!Char.IsDigit(ch) && ch != 8)
-            {
-                e.Handled = true;
-            }
+
         }
     }
 }

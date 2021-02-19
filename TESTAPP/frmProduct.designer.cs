@@ -58,7 +58,6 @@ namespace SHOPLITE
             System.Windows.Forms.Label suppPinCodeLabel;
             System.Windows.Forms.Label suppTelLabel;
             System.Windows.Forms.Label suppVatNoLabel;
-            this.btnExit = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.tbMasters = new System.Windows.Forms.TabControl();
@@ -69,7 +68,7 @@ namespace SHOPLITE
             this.UnitTextBox = new System.Windows.Forms.TextBox();
             this.VatTextBox = new System.Windows.Forms.TextBox();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.button5 = new System.Windows.Forms.Button();
+            this.btnPList = new System.Windows.Forms.Button();
             this.btnScan = new System.Windows.Forms.Button();
             this.btnSell = new System.Windows.Forms.Button();
             this.btnCost = new System.Windows.Forms.Button();
@@ -156,6 +155,7 @@ namespace SHOPLITE
             this.label18 = new System.Windows.Forms.Label();
             this.txtComCd = new System.Windows.Forms.TextBox();
             this.pgBranch = new System.Windows.Forms.TabPage();
+            this.btnPClear = new System.Windows.Forms.Button();
             cpLabel = new System.Windows.Forms.Label();
             deptCdLabel = new System.Windows.Forms.Label();
             isActiveLabel = new System.Windows.Forms.Label();
@@ -185,7 +185,6 @@ namespace SHOPLITE
             suppPinCodeLabel = new System.Windows.Forms.Label();
             suppTelLabel = new System.Windows.Forms.Label();
             suppVatNoLabel = new System.Windows.Forms.Label();
-            this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tbMasters.SuspendLayout();
             this.PgProduct.SuspendLayout();
@@ -206,7 +205,7 @@ namespace SHOPLITE
             // cpLabel
             // 
             cpLabel.AutoSize = true;
-            cpLabel.Location = new System.Drawing.Point(37, 83);
+            cpLabel.Location = new System.Drawing.Point(85, 83);
             cpLabel.Name = "cpLabel";
             cpLabel.Size = new System.Drawing.Size(82, 18);
             cpLabel.TabIndex = 0;
@@ -215,7 +214,7 @@ namespace SHOPLITE
             // deptCdLabel
             // 
             deptCdLabel.AutoSize = true;
-            deptCdLabel.Location = new System.Drawing.Point(269, 123);
+            deptCdLabel.Location = new System.Drawing.Point(317, 123);
             deptCdLabel.Name = "deptCdLabel";
             deptCdLabel.Size = new System.Drawing.Size(89, 18);
             deptCdLabel.TabIndex = 2;
@@ -224,7 +223,7 @@ namespace SHOPLITE
             // isActiveLabel
             // 
             isActiveLabel.AutoSize = true;
-            isActiveLabel.Location = new System.Drawing.Point(49, 294);
+            isActiveLabel.Location = new System.Drawing.Point(97, 294);
             isActiveLabel.Name = "isActiveLabel";
             isActiveLabel.Size = new System.Drawing.Size(66, 18);
             isActiveLabel.TabIndex = 4;
@@ -233,7 +232,7 @@ namespace SHOPLITE
             // prodCdLabel
             // 
             prodCdLabel.AutoSize = true;
-            prodCdLabel.Location = new System.Drawing.Point(15, 18);
+            prodCdLabel.Location = new System.Drawing.Point(63, 18);
             prodCdLabel.Name = "prodCdLabel";
             prodCdLabel.Size = new System.Drawing.Size(104, 18);
             prodCdLabel.TabIndex = 6;
@@ -242,7 +241,7 @@ namespace SHOPLITE
             // prodNmLabel
             // 
             prodNmLabel.AutoSize = true;
-            prodNmLabel.Location = new System.Drawing.Point(11, 50);
+            prodNmLabel.Location = new System.Drawing.Point(59, 50);
             prodNmLabel.Name = "prodNmLabel";
             prodNmLabel.Size = new System.Drawing.Size(108, 18);
             prodNmLabel.TabIndex = 8;
@@ -251,7 +250,7 @@ namespace SHOPLITE
             // qtyAvbleLabel
             // 
             qtyAvbleLabel.AutoSize = true;
-            qtyAvbleLabel.Location = new System.Drawing.Point(41, 252);
+            qtyAvbleLabel.Location = new System.Drawing.Point(89, 252);
             qtyAvbleLabel.Name = "qtyAvbleLabel";
             qtyAvbleLabel.Size = new System.Drawing.Size(74, 18);
             qtyAvbleLabel.TabIndex = 10;
@@ -261,7 +260,7 @@ namespace SHOPLITE
             // qtyOnOrderLabel
             // 
             qtyOnOrderLabel.AutoSize = true;
-            qtyOnOrderLabel.Location = new System.Drawing.Point(289, 252);
+            qtyOnOrderLabel.Location = new System.Drawing.Point(337, 252);
             qtyOnOrderLabel.Name = "qtyOnOrderLabel";
             qtyOnOrderLabel.Size = new System.Drawing.Size(101, 18);
             qtyOnOrderLabel.TabIndex = 12;
@@ -270,7 +269,7 @@ namespace SHOPLITE
             // spLabel
             // 
             spLabel.AutoSize = true;
-            spLabel.Location = new System.Drawing.Point(265, 83);
+            spLabel.Location = new System.Drawing.Point(313, 83);
             spLabel.Name = "spLabel";
             spLabel.Size = new System.Drawing.Size(93, 18);
             spLabel.TabIndex = 14;
@@ -279,7 +278,7 @@ namespace SHOPLITE
             // supCdLabel
             // 
             supCdLabel.AutoSize = true;
-            supCdLabel.Location = new System.Drawing.Point(54, 170);
+            supCdLabel.Location = new System.Drawing.Point(102, 170);
             supCdLabel.Name = "supCdLabel";
             supCdLabel.Size = new System.Drawing.Size(65, 18);
             supCdLabel.TabIndex = 16;
@@ -288,7 +287,7 @@ namespace SHOPLITE
             // unitCdLabel
             // 
             unitCdLabel.AutoSize = true;
-            unitCdLabel.Location = new System.Drawing.Point(81, 120);
+            unitCdLabel.Location = new System.Drawing.Point(129, 120);
             unitCdLabel.Name = "unitCdLabel";
             unitCdLabel.Size = new System.Drawing.Size(38, 18);
             unitCdLabel.TabIndex = 18;
@@ -297,7 +296,7 @@ namespace SHOPLITE
             // vatCdLabel
             // 
             vatCdLabel.AutoSize = true;
-            vatCdLabel.Location = new System.Drawing.Point(86, 217);
+            vatCdLabel.Location = new System.Drawing.Point(134, 217);
             vatCdLabel.Name = "vatCdLabel";
             vatCdLabel.Size = new System.Drawing.Size(33, 18);
             vatCdLabel.TabIndex = 20;
@@ -479,20 +478,8 @@ namespace SHOPLITE
             suppVatNoLabel.TabIndex = 30;
             suppVatNoLabel.Text = "Vat Reg. No";
             // 
-            // btnExit
-            // 
-            this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnExit.Location = new System.Drawing.Point(770, 5);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(36, 23);
-            this.btnExit.TabIndex = 0;
-            this.btnExit.Text = "button1";
-            this.btnExit.UseVisualStyleBackColor = true;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
-            // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.btnExit);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
@@ -530,7 +517,7 @@ namespace SHOPLITE
             // 
             // PgProduct
             // 
-            this.PgProduct.BackColor = System.Drawing.Color.Silver;
+            this.PgProduct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(113)))), ((int)(((byte)(157)))), ((int)(((byte)(245)))));
             this.PgProduct.Controls.Add(this.panel3);
             this.PgProduct.Location = new System.Drawing.Point(4, 30);
             this.PgProduct.Name = "PgProduct";
@@ -542,8 +529,8 @@ namespace SHOPLITE
             // panel3
             // 
             this.panel3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(208)))), ((int)(((byte)(176)))));
-            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(192)))), ((int)(((byte)(113)))));
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel3.Controls.Add(this.SupTextBox);
             this.panel3.Controls.Add(this.deptTextBox);
             this.panel3.Controls.Add(this.UnitTextBox);
@@ -567,16 +554,16 @@ namespace SHOPLITE
             this.panel3.Controls.Add(cpLabel);
             this.panel3.Controls.Add(this.cpTextBox);
             this.panel3.Controls.Add(this.prodCdTextBox);
-            this.panel3.Location = new System.Drawing.Point(106, 13);
+            this.panel3.Location = new System.Drawing.Point(59, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(561, 383);
+            this.panel3.Size = new System.Drawing.Size(679, 443);
             this.panel3.TabIndex = 22;
             // 
             // SupTextBox
             // 
-            this.SupTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.SupTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(238)))), ((int)(((byte)(245)))));
             this.SupTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.SupTextBox.Location = new System.Drawing.Point(125, 167);
+            this.SupTextBox.Location = new System.Drawing.Point(173, 167);
             this.SupTextBox.Name = "SupTextBox";
             this.SupTextBox.ReadOnly = true;
             this.SupTextBox.Size = new System.Drawing.Size(411, 24);
@@ -584,9 +571,9 @@ namespace SHOPLITE
             // 
             // deptTextBox
             // 
-            this.deptTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.deptTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(238)))), ((int)(((byte)(245)))));
             this.deptTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.deptTextBox.Location = new System.Drawing.Point(364, 117);
+            this.deptTextBox.Location = new System.Drawing.Point(412, 117);
             this.deptTextBox.Name = "deptTextBox";
             this.deptTextBox.ReadOnly = true;
             this.deptTextBox.Size = new System.Drawing.Size(81, 24);
@@ -594,9 +581,9 @@ namespace SHOPLITE
             // 
             // UnitTextBox
             // 
-            this.UnitTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.UnitTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(238)))), ((int)(((byte)(245)))));
             this.UnitTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.UnitTextBox.Location = new System.Drawing.Point(125, 120);
+            this.UnitTextBox.Location = new System.Drawing.Point(173, 120);
             this.UnitTextBox.Name = "UnitTextBox";
             this.UnitTextBox.ReadOnly = true;
             this.UnitTextBox.Size = new System.Drawing.Size(117, 24);
@@ -604,9 +591,9 @@ namespace SHOPLITE
             // 
             // VatTextBox
             // 
-            this.VatTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.VatTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(238)))), ((int)(((byte)(245)))));
             this.VatTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.VatTextBox.Location = new System.Drawing.Point(125, 214);
+            this.VatTextBox.Location = new System.Drawing.Point(173, 214);
             this.VatTextBox.Name = "VatTextBox";
             this.VatTextBox.ReadOnly = true;
             this.VatTextBox.Size = new System.Drawing.Size(117, 24);
@@ -615,88 +602,107 @@ namespace SHOPLITE
             // panel4
             // 
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel4.Controls.Add(this.button5);
+            this.panel4.Controls.Add(this.btnPClear);
+            this.panel4.Controls.Add(this.btnPList);
             this.panel4.Controls.Add(this.btnScan);
             this.panel4.Controls.Add(this.btnSell);
             this.panel4.Controls.Add(this.btnCost);
             this.panel4.Controls.Add(this.btnEdit);
             this.panel4.Controls.Add(this.btnNew);
-            this.panel4.Location = new System.Drawing.Point(14, 323);
+            this.panel4.Location = new System.Drawing.Point(30, 323);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(522, 53);
+            this.panel4.Size = new System.Drawing.Size(603, 60);
             this.panel4.TabIndex = 22;
             // 
-            // button5
+            // btnPList
             // 
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Location = new System.Drawing.Point(350, 12);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(60, 28);
-            this.button5.TabIndex = 5;
-            this.button5.Text = "NEW";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.btnPList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(30)))), ((int)(((byte)(143)))));
+            this.btnPList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPList.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPList.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnPList.Location = new System.Drawing.Point(406, 8);
+            this.btnPList.Name = "btnPList";
+            this.btnPList.Size = new System.Drawing.Size(70, 39);
+            this.btnPList.TabIndex = 5;
+            this.btnPList.Text = "LIST";
+            this.btnPList.UseVisualStyleBackColor = false;
+            this.btnPList.Click += new System.EventHandler(this.button5_Click);
             // 
             // btnScan
             // 
+            this.btnScan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(30)))), ((int)(((byte)(143)))));
             this.btnScan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnScan.Location = new System.Drawing.Point(284, 12);
+            this.btnScan.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnScan.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnScan.Location = new System.Drawing.Point(324, 8);
             this.btnScan.Name = "btnScan";
-            this.btnScan.Size = new System.Drawing.Size(60, 28);
+            this.btnScan.Size = new System.Drawing.Size(67, 39);
             this.btnScan.TabIndex = 4;
             this.btnScan.Text = "SCAN";
-            this.btnScan.UseVisualStyleBackColor = true;
+            this.btnScan.UseVisualStyleBackColor = false;
             this.btnScan.Click += new System.EventHandler(this.btnScan_Click);
             // 
             // btnSell
             // 
+            this.btnSell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(30)))), ((int)(((byte)(143)))));
             this.btnSell.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSell.Location = new System.Drawing.Point(218, 12);
+            this.btnSell.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSell.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnSell.Location = new System.Drawing.Point(248, 8);
             this.btnSell.Name = "btnSell";
-            this.btnSell.Size = new System.Drawing.Size(60, 28);
+            this.btnSell.Size = new System.Drawing.Size(60, 39);
             this.btnSell.TabIndex = 3;
             this.btnSell.Text = "SELL";
-            this.btnSell.UseVisualStyleBackColor = true;
+            this.btnSell.UseVisualStyleBackColor = false;
             this.btnSell.Click += new System.EventHandler(this.btnSell_Click);
             // 
             // btnCost
             // 
+            this.btnCost.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(30)))), ((int)(((byte)(143)))));
             this.btnCost.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCost.Location = new System.Drawing.Point(151, 12);
+            this.btnCost.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCost.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnCost.Location = new System.Drawing.Point(168, 8);
             this.btnCost.Name = "btnCost";
-            this.btnCost.Size = new System.Drawing.Size(60, 28);
+            this.btnCost.Size = new System.Drawing.Size(71, 39);
             this.btnCost.TabIndex = 2;
             this.btnCost.Text = "COST";
-            this.btnCost.UseVisualStyleBackColor = true;
+            this.btnCost.UseVisualStyleBackColor = false;
             this.btnCost.Click += new System.EventHandler(this.btnCost_Click);
             // 
             // btnEdit
             // 
+            this.btnEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(30)))), ((int)(((byte)(143)))));
             this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEdit.Location = new System.Drawing.Point(85, 12);
+            this.btnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEdit.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnEdit.Location = new System.Drawing.Point(89, 8);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(60, 28);
+            this.btnEdit.Size = new System.Drawing.Size(60, 39);
             this.btnEdit.TabIndex = 1;
             this.btnEdit.Text = "EDIT";
-            this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.UseVisualStyleBackColor = false;
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnNew
             // 
+            this.btnNew.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(30)))), ((int)(((byte)(143)))));
             this.btnNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNew.Location = new System.Drawing.Point(19, 12);
+            this.btnNew.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNew.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnNew.Location = new System.Drawing.Point(16, 8);
             this.btnNew.Name = "btnNew";
-            this.btnNew.Size = new System.Drawing.Size(60, 28);
+            this.btnNew.Size = new System.Drawing.Size(60, 39);
             this.btnNew.TabIndex = 0;
             this.btnNew.Text = "NEW";
-            this.btnNew.UseVisualStyleBackColor = true;
+            this.btnNew.UseVisualStyleBackColor = false;
             this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
             // 
             // spTextBox
             // 
-            this.spTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.spTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(238)))), ((int)(((byte)(245)))));
             this.spTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.spTextBox.Location = new System.Drawing.Point(364, 80);
+            this.spTextBox.Location = new System.Drawing.Point(412, 80);
             this.spTextBox.Name = "spTextBox";
             this.spTextBox.ReadOnly = true;
             this.spTextBox.Size = new System.Drawing.Size(81, 24);
@@ -704,9 +710,9 @@ namespace SHOPLITE
             // 
             // qtyOnOrderTextBox
             // 
-            this.qtyOnOrderTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.qtyOnOrderTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(238)))), ((int)(((byte)(245)))));
             this.qtyOnOrderTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.qtyOnOrderTextBox.Location = new System.Drawing.Point(396, 249);
+            this.qtyOnOrderTextBox.Location = new System.Drawing.Point(444, 249);
             this.qtyOnOrderTextBox.Name = "qtyOnOrderTextBox";
             this.qtyOnOrderTextBox.ReadOnly = true;
             this.qtyOnOrderTextBox.Size = new System.Drawing.Size(140, 24);
@@ -714,9 +720,9 @@ namespace SHOPLITE
             // 
             // qtyAvbleTextBox
             // 
-            this.qtyAvbleTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.qtyAvbleTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(238)))), ((int)(((byte)(245)))));
             this.qtyAvbleTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.qtyAvbleTextBox.Location = new System.Drawing.Point(125, 249);
+            this.qtyAvbleTextBox.Location = new System.Drawing.Point(173, 249);
             this.qtyAvbleTextBox.Name = "qtyAvbleTextBox";
             this.qtyAvbleTextBox.ReadOnly = true;
             this.qtyAvbleTextBox.Size = new System.Drawing.Size(117, 24);
@@ -724,9 +730,9 @@ namespace SHOPLITE
             // 
             // prodNmTextBox
             // 
-            this.prodNmTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.prodNmTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(238)))), ((int)(((byte)(245)))));
             this.prodNmTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.prodNmTextBox.Location = new System.Drawing.Point(125, 45);
+            this.prodNmTextBox.Location = new System.Drawing.Point(173, 45);
             this.prodNmTextBox.Name = "prodNmTextBox";
             this.prodNmTextBox.ReadOnly = true;
             this.prodNmTextBox.Size = new System.Drawing.Size(411, 24);
@@ -736,7 +742,7 @@ namespace SHOPLITE
             // 
             this.isActiveCheckBox.Checked = true;
             this.isActiveCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.isActiveCheckBox.Location = new System.Drawing.Point(121, 293);
+            this.isActiveCheckBox.Location = new System.Drawing.Point(169, 293);
             this.isActiveCheckBox.Name = "isActiveCheckBox";
             this.isActiveCheckBox.Size = new System.Drawing.Size(83, 24);
             this.isActiveCheckBox.TabIndex = 10;
@@ -744,9 +750,9 @@ namespace SHOPLITE
             // 
             // cpTextBox
             // 
-            this.cpTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.cpTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(238)))), ((int)(((byte)(245)))));
             this.cpTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.cpTextBox.Location = new System.Drawing.Point(125, 80);
+            this.cpTextBox.Location = new System.Drawing.Point(173, 80);
             this.cpTextBox.Name = "cpTextBox";
             this.cpTextBox.ReadOnly = true;
             this.cpTextBox.Size = new System.Drawing.Size(117, 24);
@@ -754,9 +760,9 @@ namespace SHOPLITE
             // 
             // prodCdTextBox
             // 
-            this.prodCdTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.prodCdTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(238)))), ((int)(((byte)(245)))));
             this.prodCdTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.prodCdTextBox.Location = new System.Drawing.Point(125, 15);
+            this.prodCdTextBox.Location = new System.Drawing.Point(173, 15);
             this.prodCdTextBox.Name = "prodCdTextBox";
             this.prodCdTextBox.Size = new System.Drawing.Size(117, 24);
             this.prodCdTextBox.TabIndex = 0;
@@ -1549,6 +1555,20 @@ namespace SHOPLITE
             this.pgBranch.TabIndex = 8;
             this.pgBranch.Text = "Branch";
             // 
+            // btnPClear
+            // 
+            this.btnPClear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(30)))), ((int)(((byte)(143)))));
+            this.btnPClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPClear.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnPClear.Location = new System.Drawing.Point(496, 8);
+            this.btnPClear.Name = "btnPClear";
+            this.btnPClear.Size = new System.Drawing.Size(82, 39);
+            this.btnPClear.TabIndex = 5;
+            this.btnPClear.Text = "CLEAR";
+            this.btnPClear.UseVisualStyleBackColor = false;
+            this.btnPClear.Click += new System.EventHandler(this.button5_Click);
+            // 
             // frmProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1560,7 +1580,6 @@ namespace SHOPLITE
             this.Name = "frmProduct";
             this.Text = "frmProduct";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.tbMasters.ResumeLayout(false);
             this.PgProduct.ResumeLayout(false);
@@ -1587,8 +1606,6 @@ namespace SHOPLITE
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TabControl tbMasters;
@@ -1611,7 +1628,7 @@ namespace SHOPLITE
         private System.Windows.Forms.TextBox prodCdTextBox;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Button btnNew;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btnPList;
         private System.Windows.Forms.Button btnScan;
         private System.Windows.Forms.Button btnSell;
         private System.Windows.Forms.Button btnCost;
@@ -1686,5 +1703,6 @@ namespace SHOPLITE
         private System.Windows.Forms.TextBox txtComNm;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.TextBox txtComCd;
+        private System.Windows.Forms.Button btnPClear;
     }
 }

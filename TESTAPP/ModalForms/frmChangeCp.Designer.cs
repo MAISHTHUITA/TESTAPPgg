@@ -110,6 +110,7 @@ namespace SHOPLITE.ModalForms
             this.txtNewCost.Name = "txtNewCost";
             this.txtNewCost.Size = new System.Drawing.Size(102, 23);
             this.txtNewCost.TabIndex = 1;
+            this.txtNewCost.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_KeyPress);
             // 
             // label4
             // 

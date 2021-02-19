@@ -42,35 +42,35 @@ namespace SHOPLITE.ModalForms
             // deptCdLabel
             // 
             deptCdLabel.AutoSize = true;
-            deptCdLabel.Location = new System.Drawing.Point(36, 55);
+            deptCdLabel.Location = new System.Drawing.Point(40, 34);
             deptCdLabel.Name = "deptCdLabel";
-            deptCdLabel.Size = new System.Drawing.Size(61, 13);
+            deptCdLabel.Size = new System.Drawing.Size(78, 15);
             deptCdLabel.TabIndex = 6;
             deptCdLabel.Text = "Dept Code:";
             // 
             // deptNmLabel
             // 
             deptNmLabel.AutoSize = true;
-            deptNmLabel.Location = new System.Drawing.Point(33, 90);
+            deptNmLabel.Location = new System.Drawing.Point(35, 75);
             deptNmLabel.Name = "deptNmLabel";
-            deptNmLabel.Size = new System.Drawing.Size(64, 13);
+            deptNmLabel.Size = new System.Drawing.Size(83, 15);
             deptNmLabel.TabIndex = 8;
             deptNmLabel.Text = "Dept Name:";
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(260, 129);
+            this.btnCancel.Location = new System.Drawing.Point(287, 110);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.Size = new System.Drawing.Size(99, 27);
             this.btnCancel.TabIndex = 10;
             this.btnCancel.Text = "CANCEL";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(139, 129);
+            this.btnSave.Location = new System.Drawing.Point(126, 110);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 23);
+            this.btnSave.Size = new System.Drawing.Size(99, 27);
             this.btnSave.TabIndex = 11;
             this.btnSave.Text = "SAVE";
             this.btnSave.UseVisualStyleBackColor = true;
@@ -78,30 +78,32 @@ namespace SHOPLITE.ModalForms
             // 
             // deptCdTextBox
             // 
-            this.deptCdTextBox.Location = new System.Drawing.Point(105, 52);
+            this.deptCdTextBox.Location = new System.Drawing.Point(126, 32);
             this.deptCdTextBox.Name = "deptCdTextBox";
             this.deptCdTextBox.ReadOnly = true;
-            this.deptCdTextBox.Size = new System.Drawing.Size(100, 20);
+            this.deptCdTextBox.Size = new System.Drawing.Size(132, 21);
             this.deptCdTextBox.TabIndex = 7;
             // 
             // deptNmTextBox
             // 
-            this.deptNmTextBox.Location = new System.Drawing.Point(105, 87);
+            this.deptNmTextBox.Location = new System.Drawing.Point(126, 72);
             this.deptNmTextBox.Name = "deptNmTextBox";
-            this.deptNmTextBox.Size = new System.Drawing.Size(333, 20);
+            this.deptNmTextBox.Size = new System.Drawing.Size(331, 21);
             this.deptNmTextBox.TabIndex = 9;
             // 
             // frmEditDept
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(456, 168);
+            this.BackColor = System.Drawing.Color.Orchid;
+            this.ClientSize = new System.Drawing.Size(494, 166);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(deptCdLabel);
             this.Controls.Add(this.deptCdTextBox);
             this.Controls.Add(deptNmLabel);
             this.Controls.Add(this.deptNmTextBox);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
