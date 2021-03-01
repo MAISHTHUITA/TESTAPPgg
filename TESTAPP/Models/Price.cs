@@ -5,15 +5,17 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace SHOPLITE.Models
 {
     public class SellingPrice
     {
         public string ProdCd { get; set; }
+        public string ProdNm { get; set; }
         public DateTime Chg_Dt { get; set; }
-        public decimal Int_Sp { get; set; }
-        public decimal New_Sp { get; set; }
+        public decimal Old { get; set; }
+        public decimal New { get; set; }
         public string Usr_Nm { get; set; }
         public string Brch_Cd { get; set; }
         public string Cmpy_Cd { get; set; }
@@ -21,9 +23,10 @@ namespace SHOPLITE.Models
     public class CostPrice
     {
         public string ProdCd { get; set; }
+        public string ProdNm { get; set; }
         public DateTime Chg_Dt { get; set; }
-        public decimal Int_Cp { get; set; }
-        public decimal New_Cp { get; set; }
+        public decimal Old { get; set; }
+        public decimal New { get; set; }
         public string Usr_Nm { get; set; }
         public string Brch_Cd { get; set; }
         public string Cmpy_Cd { get; set; }
@@ -32,9 +35,10 @@ namespace SHOPLITE.Models
     {
         bool ChangeCP(CostPrice costPrice);
         bool ChangeSP(SellingPrice product);
-        IEnumerable<CostPrice> GetCostPrices(DateTime fromdt, DateTime todt);
-        IEnumerable<SellingPrice> GetSellingPrices(DateTime fromdt, DateTime todt);
+        IEnumerable<CostPrice> GetCostPrices(DateTime fromdt, DateTime todt,string fromprdct,string toprdct, string fromsupp,string tosupp,string fromdept,string todept);
+        IEnumerable<SellingPrice> GetSellingPrices(DateTime fromdt, DateTime todt, string fromprdct, string toprdct, string fromsupp, string tosupp, string fromdept, string todept);
     }
+
     public class PriceRepository : IPriceRepository
     {
         public bool ChangeCP(CostPrice product)
@@ -51,13 +55,13 @@ namespace SHOPLITE.Models
                             con.Open();
                         SqlTransaction transaction = con.BeginTransaction();
                         SqlCommand sql1 = new SqlCommand(updateproduct, con);
-                        sql1.Parameters.AddWithValue("@cp", product.New_Cp);
+                        sql1.Parameters.AddWithValue("@cp", product.New);
                         sql1.Parameters.AddWithValue("@prodcd",product.ProdCd);
                         sql1.Transaction = transaction;
                         SqlCommand sql2 = new SqlCommand(updatecpchange, con);
                         sql2.Parameters.AddWithValue("@PROD_CD",product.ProdCd);
-                        sql2.Parameters.AddWithValue("@INT_CP",product.Int_Cp);
-                        sql2.Parameters.AddWithValue("@NW_CP",product.New_Cp);
+                        sql2.Parameters.AddWithValue("@INT_CP",product.Old);
+                        sql2.Parameters.AddWithValue("@NW_CP",product.New);
                         sql2.Parameters.AddWithValue("@USR_NM","ADMIN");
                         sql2.Parameters.AddWithValue("@BRCH_CD","NRK");
                         sql2.Parameters.AddWithValue("@CMPY_CD","TT");
@@ -101,13 +105,13 @@ namespace SHOPLITE.Models
                         con.Open();
                     SqlTransaction transaction = con.BeginTransaction();
                     SqlCommand sql1 = new SqlCommand(updateproduct, con);
-                    sql1.Parameters.AddWithValue("@sp", product.New_Sp);
+                    sql1.Parameters.AddWithValue("@sp", product.New);
                     sql1.Parameters.AddWithValue("@prodcd", product.ProdCd);
                     sql1.Transaction = transaction;
                     SqlCommand sql2 = new SqlCommand(updatecpchange, con);
                     sql2.Parameters.AddWithValue("@PROD_CD", product.ProdCd);
-                    sql2.Parameters.AddWithValue("@INT_SP", product.Int_Sp);
-                    sql2.Parameters.AddWithValue("@NW_SP", product.New_Sp);
+                    sql2.Parameters.AddWithValue("@INT_SP", product.Old);
+                    sql2.Parameters.AddWithValue("@NW_SP", product.New);
                     sql2.Parameters.AddWithValue("@USR_NM", "ADMIN");
                     sql2.Parameters.AddWithValue("@BRCH_CD", "NRK");
                     sql2.Parameters.AddWithValue("@CMPY_CD", "TT");
@@ -136,14 +140,104 @@ namespace SHOPLITE.Models
             }
         }
 
-        public IEnumerable<CostPrice> GetCostPrices(DateTime fromdt, DateTime todt)
+        public IEnumerable<CostPrice> GetCostPrices(DateTime fromdt, DateTime todt, string fromprdct, string toprdct, string fromsupp, string tosupp, string fromdept, string todept)
         {
-            throw new NotImplementedException();
+            
+            List<CostPrice> costPrices = new List<CostPrice>();
+            using (SqlConnection con =new SqlConnection(DbCon.connection))
+            {
+                try
+                {
+                    string query = "select c.PROD_CD,p.ProdNm,c.BRCH_CD, p.ProdNm, c.INT_CP,c.NW_CP,c.USR_NM,c.CHG_DT from TBLCPHIST c inner join TblProd p on c.PROD_CD=p.ProdCd where PROD_CD between @fromprdct and @toprdct and SuppCd between @fromsupp and @tosupp and DeptCd between @fromdept and @todept and c.CHG_DT between @fromdate and @todate";
+                    SqlCommand cmd = new SqlCommand(query, con);
+                    cmd.Parameters.AddWithValue("@fromprdct",fromprdct);
+                    cmd.Parameters.AddWithValue("@toprdct",toprdct);
+                    cmd.Parameters.AddWithValue("@fromdate",fromdt.Date);
+                    cmd.Parameters.AddWithValue("@todate", todt.Date.AddHours(23).AddMinutes(59).AddSeconds(59));
+                    cmd.Parameters.AddWithValue("@fromsupp",fromsupp);
+                    cmd.Parameters.AddWithValue("@tosupp",tosupp);
+                    cmd.Parameters.AddWithValue("@fromdept",fromdept);
+                    cmd.Parameters.AddWithValue("@todept",todept);
+                    if (con.State == ConnectionState.Closed)
+                        con.Open();
+                    SqlDataReader sql = cmd.ExecuteReader();
+                    if (!sql.HasRows)
+                    {
+                        return costPrices;
+                    }
+                    else
+                    {
+                        while (sql.Read())
+                        {
+                            CostPrice costPrice = new CostPrice();
+                            costPrice.ProdCd = sql["PROD_CD"].ToString();
+                            costPrice.ProdNm = sql["ProdNm"].ToString();
+                            costPrice.Old = (decimal)sql["INT_CP"];
+                            costPrice.New = (decimal)sql["Nw_Cp"];
+                            costPrice.Brch_Cd = sql["BRCH_CD"].ToString();
+                            costPrice.Chg_Dt = (DateTime)sql["Chg_Dt"];
+                            costPrice.Usr_Nm = sql["USR_NM"].ToString();
+                            costPrices.Add(costPrice);
+                        }
+                    }
+                }
+                catch (Exception exe)
+                {
+
+                    MessageBox.Show(exe.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            return costPrices;
         }
 
-        public IEnumerable<SellingPrice> GetSellingPrices(DateTime fromdt, DateTime todt)
+        public IEnumerable<SellingPrice> GetSellingPrices(DateTime fromdt, DateTime todt, string fromprdct, string toprdct, string fromsupp, string tosupp, string fromdept, string todept)
         {
-            throw new NotImplementedException();
+            List<SellingPrice> sellPrices = new List<SellingPrice>();
+            using (SqlConnection con = new SqlConnection(DbCon.connection))
+            {
+                try
+                {
+                    string query = "select c.PROD_CD,p.ProdNm,c.BRCH_CD, p.ProdNm, c.INT_sP,c.NW_SP,c.USR_NM,c.CHG_DT from TBLSPHIST c inner join TblProd p on c.PROD_CD=p.ProdCd where PROD_CD between @fromprdct and @toprdct and SuppCd between @fromsupp and @tosupp and DeptCd between @fromdept and @todept and c.CHG_DT between @fromdate and @todate";
+                    SqlCommand cmd = new SqlCommand(query, con);
+                    cmd.Parameters.AddWithValue("@fromprdct", fromprdct);
+                    cmd.Parameters.AddWithValue("@toprdct", toprdct);
+                    cmd.Parameters.AddWithValue("@fromdate", fromdt.Date);
+                    cmd.Parameters.AddWithValue("@todate", todt.Date.AddHours(23).AddMinutes(59).AddSeconds(59));
+                    cmd.Parameters.AddWithValue("@fromsupp", fromsupp);
+                    cmd.Parameters.AddWithValue("@tosupp", tosupp);
+                    cmd.Parameters.AddWithValue("@fromdept", fromdept);
+                    cmd.Parameters.AddWithValue("@todept", todept);
+                    if (con.State == ConnectionState.Closed)
+                        con.Open();
+                    SqlDataReader sql = cmd.ExecuteReader();
+                    if (!sql.HasRows)
+                    {
+                        return sellPrices;
+                    }
+                    else
+                    {
+                        while (sql.Read())
+                        {
+                            SellingPrice costPrice = new SellingPrice();
+                            costPrice.ProdCd = sql["PROD_CD"].ToString();
+                            costPrice.ProdNm = sql["ProdNm"].ToString();
+                            costPrice.Old = (decimal)sql["INT_SP"];
+                            costPrice.New = (decimal)sql["Nw_SP"];
+                            costPrice.Brch_Cd = sql["BRCH_CD"].ToString();
+                            costPrice.Chg_Dt = (DateTime)sql["Chg_Dt"];
+                            costPrice.Usr_Nm = sql["USR_NM"].ToString();
+                            sellPrices.Add(costPrice);
+                        }
+                    }
+                }
+                catch (Exception exe)
+                {
+
+                    MessageBox.Show(exe.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            return sellPrices;
+        
         }
     }
 

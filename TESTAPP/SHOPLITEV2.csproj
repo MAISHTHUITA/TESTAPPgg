@@ -74,6 +74,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dbsettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dbsettings.Designer.cs">
+      <DependentUpon>Dbsettings.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,6 +115,12 @@
     </Compile>
     <Compile Include="frmProduct.designer.cs">
       <DependentUpon>frmProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmReports.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReports.Designer.cs">
+      <DependentUpon>frmReports.cs</DependentUpon>
     </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -176,6 +188,12 @@
     <Compile Include="ModalForms\FrmNewVat.Designer.cs">
       <DependentUpon>FrmNewVat.cs</DependentUpon>
     </Compile>
+    <Compile Include="ModalForms\frmPriceChange.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModalForms\frmPriceChange.Designer.cs">
+      <DependentUpon>frmPriceChange.cs</DependentUpon>
+    </Compile>
     <Compile Include="ModalForms\frmScanCd.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -210,6 +228,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DeptList.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\PriceChange.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PriceChange.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reports\ProductList.cs">
@@ -260,6 +284,9 @@
     <Compile Include="SearchFoms\frmSearchUnit.Designer.cs">
       <DependentUpon>frmSearchUnit.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Dbsettings.resx">
+      <DependentUpon>Dbsettings.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmDashboard.resx">
       <DependentUpon>frmDashboard.cs</DependentUpon>
     </EmbeddedResource>
@@ -277,6 +304,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmProduct.resx">
       <DependentUpon>frmProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReports.resx">
+      <DependentUpon>frmReports.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -311,6 +341,9 @@
     <EmbeddedResource Include="ModalForms\FrmNewVat.resx">
       <DependentUpon>FrmNewVat.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ModalForms\frmPriceChange.resx">
+      <DependentUpon>frmPriceChange.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ModalForms\frmScanCd.resx">
       <DependentUpon>frmScanCd.cs</DependentUpon>
     </EmbeddedResource>
@@ -333,6 +366,10 @@
     <EmbeddedResource Include="Reports\DeptList.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>DeptList1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\PriceChange.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>PriceChange.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\ProductList.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

@@ -44,8 +44,8 @@ namespace SHOPLITE.ModalForms
             PriceRepository priceRepository = new PriceRepository();
             SellingPrice cost = new SellingPrice();
             cost.ProdCd = txtProdCd.Text;
-            cost.Int_Sp = product1.Sp;
-            cost.New_Sp = Convert.ToDecimal(txtNewPrice.Text);
+            cost.Old = product1.Sp;
+            cost.New = Convert.ToDecimal(txtNewPrice.Text);
             if (priceRepository.ChangeSP(cost))
             {
                 MessageBox.Show("Selling price Update successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);

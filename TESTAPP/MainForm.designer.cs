@@ -288,6 +288,7 @@ namespace SHOPLITE
             this.btnReports.Text = "   Reports";
             this.btnReports.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnReports.UseVisualStyleBackColor = false;
+            this.btnReports.Click += new System.EventHandler(this.btnReports_Click);
             // 
             // btnInventory
             // 

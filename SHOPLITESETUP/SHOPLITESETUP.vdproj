@@ -146,6 +146,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
             }
         }
         "Release"
@@ -442,7 +450,7 @@
         {
             "{3C67513D-01DD-4637-8A68-80971EB9504F}:_522D8C3893474C5895DF5A435A7547CE"
             {
-            "DefaultLocation" = "8:[ProgramFilesFolder][Manufacturer]\\[ProductName]"
+            "DefaultLocation" = "8:[ProgramFiles64Folder][Manufacturer]\\[ProductName]"
             "Name" = "8:#1925"
             "AlwaysCreate" = "11:FALSE"
             "Condition" = "8:"
@@ -502,28 +510,28 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:SHOPLITE"
         "ProductCode" = "8:{7E1160D9-5DD8-4BE7-A526-83158B830495}"
-        "PackageCode" = "8:{DC86EB4A-5A57-4857-A1C2-1C0D3507BDA6}"
+        "PackageCode" = "8:{EB458E7B-7D67-4A99-BE3F-48F5791FFA1F}"
         "UpgradeCode" = "8:{72C9795D-1C0B-4C27-94E1-71A66F438BE0}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
-        "RemovePreviousVersions" = "11:FALSE"
+        "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
         "ProductVersion" = "8:1.0.0"
         "Manufacturer" = "8:THUITAS CYBER CAFE NAROK"
-        "ARPHELPTELEPHONE" = "8:"
-        "ARPHELPLINK" = "8:"
+        "ARPHELPTELEPHONE" = "8:0702157779"
+        "ARPHELPLINK" = "8:www.thuitas.com/shoplite"
         "Title" = "8:SHOPLITE"
         "Subject" = "8:"
         "ARPCONTACT" = "8:MICHAEL MAINA THUITA"
         "Keywords" = "8:"
         "ARPCOMMENTS" = "8:"
-        "ARPURLINFOABOUT" = "8:"
+        "ARPURLINFOABOUT" = "8:www.thuitas.com"
         "ARPPRODUCTICON" = "8:"
         "ARPIconIndex" = "3:0"
         "SearchPath" = "8:"
         "UseSystemSearchPath" = "11:TRUE"
-        "TargetPlatform" = "3:0"
+        "TargetPlatform" = "3:1"
         "PreBuildEvent" = "8:"
         "PostBuildEvent" = "8:"
         "RunPostBuildEvent" = "3:0"

@@ -83,5 +83,15 @@ namespace SHOPLITE
                     break;
             }
         }
+
+        private void btnReports_Click(object sender, EventArgs e)
+        {
+            Form form = frmReports.Instance;
+            form.TopLevel = false;
+            MainPanel.Controls.Add(form);
+            form.Dock = DockStyle.Fill;
+            form.BringToFront();
+            form.Show();
+        }
     }
 }
