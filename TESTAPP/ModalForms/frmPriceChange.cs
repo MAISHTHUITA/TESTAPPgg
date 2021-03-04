@@ -64,9 +64,9 @@ namespace SHOPLITE.ModalForms
                 {
                     ReportDocument report = new PriceChange();
                     report.SetDataSource(costPrices);
-                    report.SetParameterValue("@Company", "THUITAS CYBER CAFE NAROK");
-                    report.SetParameterValue("@Branch", "NAROK BRANCH");
-                    report.SetParameterValue("@Username", "ADMIN");
+                    report.SetParameterValue("@Company", Properties.Settings.Default.COMPANYNAME.ToUpper());
+                    report.SetParameterValue("@Branch", Properties.Settings.Default.BRANCHNAME.ToUpper());
+                    report.SetParameterValue("@Username", Properties.Settings.Default.USERNAME.ToUpper());
                     report.SetParameterValue("@ReportName", "Selling");
                     Form form = new frmPrint(report);
                     form.Text = "Selling Price Change Report";
@@ -85,9 +85,9 @@ namespace SHOPLITE.ModalForms
                 {
                     ReportDocument report = new PriceChange();
                     report.SetDataSource(costPrices);
-                    report.SetParameterValue("@Company", "THUITAS CYBER CAFE NAROK");
-                    report.SetParameterValue("@Branch", "NAROK BRANCH");
-                    report.SetParameterValue("@Username", "ADMIN");
+                    report.SetParameterValue("@Company", Properties.Settings.Default.COMPANYNAME.ToUpper());
+                    report.SetParameterValue("@Branch", Properties.Settings.Default.BRANCHNAME.ToUpper());
+                    report.SetParameterValue("@Username", Properties.Settings.Default.USERNAME.ToUpper());
                     report.SetParameterValue("@ReportName", "Cost");
                     Form form = new frmPrint(report);
                     form.Text = "Cost Price Change Report";

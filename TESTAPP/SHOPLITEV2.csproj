@@ -63,6 +63,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -109,6 +110,12 @@
     </Compile>
     <Compile Include="frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmManagement.Designer.cs">
+      <DependentUpon>frmManagement.cs</DependentUpon>
     </Compile>
     <Compile Include="frmProduct.cs">
       <SubType>Form</SubType>
@@ -164,6 +171,12 @@
     <Compile Include="ModalForms\frmEditVat.Designer.cs">
       <DependentUpon>frmEditVat.cs</DependentUpon>
     </Compile>
+    <Compile Include="ModalForms\frmGroups.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModalForms\frmGroups.Designer.cs">
+      <DependentUpon>frmGroups.cs</DependentUpon>
+    </Compile>
     <Compile Include="ModalForms\frmNewDept.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -199,6 +212,12 @@
     </Compile>
     <Compile Include="ModalForms\frmScanCd.Designer.cs">
       <DependentUpon>frmScanCd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModalForms\frmUsers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModalForms\frmUsers.Designer.cs">
+      <DependentUpon>frmUsers.cs</DependentUpon>
     </Compile>
     <Compile Include="ModalForms\frnNewUnit.cs">
       <SubType>Form</SubType>
@@ -302,6 +321,9 @@
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmManagement.resx">
+      <DependentUpon>frmManagement.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmProduct.resx">
       <DependentUpon>frmProduct.cs</DependentUpon>
     </EmbeddedResource>
@@ -329,6 +351,9 @@
     <EmbeddedResource Include="ModalForms\frmEditVat.resx">
       <DependentUpon>frmEditVat.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ModalForms\frmGroups.resx">
+      <DependentUpon>frmGroups.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ModalForms\frmNewDept.resx">
       <DependentUpon>frmNewDept.cs</DependentUpon>
     </EmbeddedResource>
@@ -346,6 +371,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ModalForms\frmScanCd.resx">
       <DependentUpon>frmScanCd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModalForms\frmUsers.resx">
+      <DependentUpon>frmUsers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ModalForms\frnNewUnit.resx">
       <DependentUpon>frnNewUnit.cs</DependentUpon>

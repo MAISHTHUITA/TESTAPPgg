@@ -9,25 +9,45 @@ namespace SHOPLITE.Models
 {
     public class EncryptKey
     {
+        private string hash = "@thuitas";
         public string Encypt(string input)
         {
-            using (SHA256 sHA256=SHA256.Create())
+            
+            byte[] data = UTF8Encoding.UTF8.GetBytes(input);
+            using (MD5CryptoServiceProvider sha=new MD5CryptoServiceProvider())
             {
-                string hash = Gethash(sHA256, input);
-                return hash.ToString();
+                byte[] keys = sha.ComputeHash(UTF8Encoding.UTF8.GetBytes(hash));
+                
+                using (TripleDESCryptoServiceProvider trip=new TripleDESCryptoServiceProvider() { Key=keys,Mode=CipherMode.ECB,Padding=PaddingMode.PKCS7})
+                {
+                    ICryptoTransform transform = trip.CreateEncryptor();
+                    byte[] result = transform.TransformFinalBlock(data, 0, data.Length);
+                 return Convert.ToBase64String(result, 0, result.Length);
+                }
             }
             
+            
         }
-        private string Gethash(HashAlgorithm hashAlgorithm,string input)
+        public string Decryptor(string encrypted )
         {
-            byte[] inputbytes = Encoding.UTF8.GetBytes(input);
-            byte[] hash = hashAlgorithm.ComputeHash(inputbytes);
-            var sbuilder = new StringBuilder();
-            for (int i = 0; i < hash.Length; i++)
-            {
-                sbuilder.Append(hash[i].ToString("x2"));
-            }
-            return sbuilder.ToString();
+
+
+            byte[] data = Convert.FromBase64String(encrypted);
+                using (MD5CryptoServiceProvider sha = new MD5CryptoServiceProvider())
+                {
+                    byte[] keys = sha.ComputeHash(UTF8Encoding.UTF8.GetBytes(hash));
+                    using (TripleDESCryptoServiceProvider trip = new TripleDESCryptoServiceProvider() { Key = keys, Mode = CipherMode.ECB, Padding = PaddingMode.PKCS7 })
+                    {
+                        ICryptoTransform transform = trip.CreateDecryptor();
+                        byte[] result = transform.TransformFinalBlock(data, 0, data.Length);
+                    return  UTF8Encoding.UTF8.GetString(result);
+                     
+                    }
+                }
+
+
+            
         }
+        
     }
 }

@@ -74,10 +74,10 @@ namespace SHOPLITE
         {
             UserRepository repository = new UserRepository();
             
-            if (repository.Login(txtUsername.Text,txtPassword.Text))
+            if (repository.Login(txtUsername.Text.ToUpper(),txtPassword.Text))
             {
                 this.DialogResult = DialogResult.OK;
-                this.user.UserName = txtUsername.Text;
+                this.user.UserName = txtUsername.Text.ToUpper();
                 getvalues();
                 this.Close();
             }
@@ -88,21 +88,21 @@ namespace SHOPLITE
         }
         private void getvalues()
         {
-            //using (SqlConnection  con=new SqlConnection(DbCon.connection))
-            //{
-            //    SqlCommand cmd = new SqlCommand("SpGetValues",con);
-            //    cmd.CommandType = CommandType.StoredProcedure;
-            //    if (con.State == ConnectionState.Closed) con.Open();
-            //    SqlDataReader rdr = cmd.ExecuteReader();
-            //    if (rdr.HasRows)
-            //    {
-                   // while (rdr.Read())
-                   // {
-                        Company = "REHOBOTH ELECTRICALS";
-                        Branch = "REHOBOTH-NAROK BRANCH";
-            //        }
-            //    }
-            //}
+            using (SqlConnection con = new SqlConnection(DbCon.connection))
+            {
+                SqlCommand cmd = new SqlCommand("SpGetValues", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                if (con.State == ConnectionState.Closed) con.Open();
+                SqlDataReader rdr = cmd.ExecuteReader();
+                if (rdr.HasRows)
+                {
+                    while (rdr.Read())
+                    {
+                        Company = rdr["COMPANY"].ToString();
+                        Branch = rdr["BRANCH"].ToString();
+                    }
+                }
+            }
         }
     }
 }

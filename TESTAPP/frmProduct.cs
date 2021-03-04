@@ -89,9 +89,9 @@ namespace SHOPLITE
             }
             ReportDocument report = new DeptList();
             report.SetDataSource(departments);
-            report.SetParameterValue("@Company", "THUITAS CYBER CAFE NAROK");
-            report.SetParameterValue("@Branch", "NAROK BRANCH");
-            report.SetParameterValue("@Username", "ADMIN");
+            report.SetParameterValue("@Company", Properties.Settings.Default.COMPANYNAME.ToUpper());
+            report.SetParameterValue("@Branch", Properties.Settings.Default.BRANCHNAME.ToUpper());
+            report.SetParameterValue("@Username", Properties.Settings.Default.USERNAME.ToUpper());
             Form form = new frmPrint(report);
             form.Text = "Department Master List";
             form.Show();
@@ -198,9 +198,9 @@ namespace SHOPLITE
             }
             ReportDocument report = new UnitList();
             report.SetDataSource(units);
-            report.SetParameterValue("@Company", "THUITAS CYBER CAFE NAROK");
-            report.SetParameterValue("@Branch", "NAROK BRANCH");
-            report.SetParameterValue("@Username", "ADMIN");
+            report.SetParameterValue("@Company", Properties.Settings.Default.COMPANYNAME.ToUpper());
+            report.SetParameterValue("@Branch", Properties.Settings.Default.BRANCHNAME.ToUpper());
+            report.SetParameterValue("@Username", Properties.Settings.Default.USERNAME.ToUpper());
             Form form = new frmPrint(report);
             form.Text = "Unit Master List";
             form.Show();
@@ -249,9 +249,9 @@ namespace SHOPLITE
             }
             ReportDocument report = new VatList();
             report.SetDataSource(vats);
-            report.SetParameterValue("@Company", "THUITAS CYBER CAFE NAROK");
-            report.SetParameterValue("@Branch", "NAROK BRANCH");
-            report.SetParameterValue("@Username", "ADMIN");
+            report.SetParameterValue("@Company", Properties.Settings.Default.COMPANYNAME.ToUpper());
+            report.SetParameterValue("@Branch", Properties.Settings.Default.BRANCHNAME.ToUpper());
+            report.SetParameterValue("@Username", Properties.Settings.Default.USERNAME.ToUpper());
             Form form = new frmPrint(report);
             form.Text = "Vat Master List";
             form.Show();
@@ -289,9 +289,9 @@ namespace SHOPLITE
             }
             ReportDocument report = new ProductList();
             report.SetDataSource(products);
-            report.SetParameterValue("@Company", "REHOBOTH ELECTRICALS");
-            report.SetParameterValue("@Branch", "REHOBOTH NAROK");
-            report.SetParameterValue("@Username", "ADMIN");
+            report.SetParameterValue("@Company", Properties.Settings.Default.COMPANYNAME.ToUpper());
+            report.SetParameterValue("@Branch", Properties.Settings.Default.BRANCHNAME.ToUpper());
+            report.SetParameterValue("@Username", Properties.Settings.Default.USERNAME.ToUpper());
             Form form = new frmPrint(report);
             form.Text = "PRODUCT LIST";
             form.Show();
@@ -394,9 +394,9 @@ namespace SHOPLITE
             }
             ReportDocument report = new SupplierList();
             report.SetDataSource(suppliers);
-            report.SetParameterValue("@Company", "THUITAS CYBER CAFE NAROK");
-            report.SetParameterValue("@Branch", "NAROK BRANCH");
-            report.SetParameterValue("@Username", "ADMIN");
+            report.SetParameterValue("@Company", Properties.Settings.Default.COMPANYNAME.ToUpper());
+            report.SetParameterValue("@Branch", Properties.Settings.Default.BRANCHNAME.ToUpper());
+            report.SetParameterValue("@Username", Properties.Settings.Default.USERNAME.ToUpper());
             Form form = new frmPrint(report);
             form.Text = "Supplier Master List";
             form.Show();
