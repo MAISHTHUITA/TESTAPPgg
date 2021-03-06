@@ -239,6 +239,16 @@ namespace SHOPLITE.Models
             return sellPrices;
         
         }
+        public decimal CalculateVat(decimal amount, decimal vatpercentage)
+        {
+            
+            decimal vatper = vatpercentage;
+            decimal ttamnt = amount;
+            decimal deno = (decimal)vatper / 100;
+            decimal denot = deno + 1;
+            decimal denote2 = (ttamnt / denot);
+            return Math.Round( denote2,2);
+        }
     }
 
 }

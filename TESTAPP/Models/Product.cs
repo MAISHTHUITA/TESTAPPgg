@@ -25,6 +25,8 @@ namespace SHOPLITE.Models
         [Required]
         public decimal Sp { get; set; }
         [Required]
+        public decimal VatPercentage { get; set; }
+        [Required]
         public decimal QtyOnOrder { get; set; }
         [Required]
         public decimal QtyAvble { get; set; }
@@ -181,7 +183,7 @@ namespace SHOPLITE.Models
             Product product = new Product();
             using (SqlConnection con = new SqlConnection(DbCon.connection))
             {
-                string query = "select * from TblProd left join TblScnCd on TblProd.ProdCd=TblScnCd.ProdCd where tblProd.ProdCd=@ProdCd or ScanCode=@ProdCd";
+                string query = "select TblProd.Prodcd,TblProd.prodnm,TblProd.unitcd,TblProd.deptcd,TblProd.suppcd,TblProd.vatcd,TblProd.qtyavble,TblProd.qtyonorder,TblProd.cp,TblProd.sp,TblProd.isactive,TblVat.vatpercentage from TblProd left join TblScnCd on TblProd.ProdCd=TblScnCd.ProdCd left join TblVat on TblProd.vatcd=tblvat.vatcd where tblProd.ProdCd=@ProdCd or ScanCode=@ProdCd";
                 SqlCommand cmd = new SqlCommand(query, con);
                 cmd.Parameters.AddWithValue("@ProdCd", Productcode);
                 try
@@ -203,6 +205,7 @@ namespace SHOPLITE.Models
                         product.DeptCd = rdr["DeptCd"].ToString();
                         product.SuppCd = rdr["SuppCd"].ToString();
                         product.VatCd = rdr["VatCd"].ToString();
+                        product.VatPercentage = (decimal)rdr["VatPercentage"];
                         product.QtyAvble = Convert.ToDecimal(rdr["QtyAvble"].ToString());
                         product.QtyOnOrder = Convert.ToDecimal(rdr["QtyOnOrder"].ToString());
                         product.Cp = Convert.ToDecimal(rdr["Cp"].ToString());
