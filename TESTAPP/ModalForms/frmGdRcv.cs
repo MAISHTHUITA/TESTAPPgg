@@ -1,9 +1,12 @@
 ﻿using SHOPLITE.Models;
+using SHOPLITE.PrintingForms;
+using SHOPLITE.Reports;
 using SHOPLITE.SearchFoms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -49,7 +52,7 @@ namespace SHOPLITE.ModalForms
                     txtgdsupcd.Text = txtInv.Text = txtSn.Text = lblsupnm.Text = "";
                     btngdclear_Click(sender, e);
                     txtSn.Enabled = false;
-                    txtgdsupcd.Enabled = true;
+                    txtgdsupcd.Enabled = txtInv.Enabled = true;
                     dgvgd.Rows.Clear();
                     txtInv.Focus();
 
@@ -64,7 +67,7 @@ namespace SHOPLITE.ModalForms
                 txtgdsupcd.Text = txtInv.Text = txtSn.Text = lblsupnm.Text = "";
                 btngdclear_Click(sender, e);
                 txtSn.Enabled = false;
-                txtgdsupcd.Enabled = true;
+                txtgdsupcd.Enabled = txtInv.Enabled = true;
                 txtInv.Focus();
             }
 
@@ -171,7 +174,7 @@ namespace SHOPLITE.ModalForms
 
         private void btngdadd_Click(object sender, EventArgs e)
         {
-            
+
             if (String.IsNullOrEmpty(txtgdProdNm.Text))
             {
                 MessageBox.Show("Please enter Product code");
@@ -184,7 +187,7 @@ namespace SHOPLITE.ModalForms
                 txtgdQty.Focus();
                 return;
             }
-            if (Convert.ToDecimal(txtgdQty.Text)<=0)
+            if (Convert.ToDecimal(txtgdQty.Text) <= 0)
             {
                 MessageBox.Show("Please enter valid quantity");
                 txtgdQty.Focus();
@@ -210,11 +213,11 @@ namespace SHOPLITE.ModalForms
                 txtgdProdNm.Focus();
 
             }
-            catch(Exception exe)
+            catch (Exception exe)
             {
                 MessageBox.Show(exe.Message);
             }
-           
+
 
         }
         private void btnExit_Click(object sender, EventArgs e)
@@ -267,8 +270,154 @@ namespace SHOPLITE.ModalForms
                     MessageBox.Show("Please Enter or clear Current Product ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
-        
+
         }
-    }
+
+        private void btngdCancel_Click(object sender, EventArgs e)
+        {
+            btngdNew_Click(sender, e);
+            frmGdRcv_Load(sender, e);
+            txtInv.Enabled = false;
+            txtSn.Enabled = true;
+            txtSn.Focus();
+        }
+        #region Save and Retrieve
+        private void btngdSave_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Are you sure you want to save.") == DialogResult.OK)
+            {
+                if (String.IsNullOrEmpty(txtInv.Text))
+                {
+                    return;
+                }
+
+                //gmaster.GrnDetail = grndets;
+                try
+                {
+
+                    using (SqlConnection con = new SqlConnection(DbCon.connection))
+                    {
+                        int returngrnnumber;
+                        con.Open();
+                        SqlCommand command = con.CreateCommand();
+                        SqlTransaction sqlTransaction;
+                        sqlTransaction = con.BeginTransaction();
+                        command.Transaction = sqlTransaction;
+                        try
+                        {
+                            command.CommandText = @"insert into GrnMaster (Suppcd,Suppnm,Invoicenumber,Username,TotalAmount,Vatamount) values(@suppcd,@suppnm, @InvoiceNumber, @Username, @TotalAmount, @VatAmount) SELECT SCOPE_IDENTITY()";
+                            command.Parameters.AddWithValue("@suppcd", txtgdsupcd.Text);
+                            command.Parameters.AddWithValue("@suppnm", lblsupnm.Text);
+                            command.Parameters.AddWithValue("@InvoiceNumber", txtInv.Text);
+                            command.Parameters.AddWithValue("@Username", Properties.Settings.Default.USERNAME);
+                            command.Parameters.AddWithValue("@TotalAmount", lblNetAmt.Text);
+                            command.Parameters.AddWithValue("@VatAmount", lblVatAmt.Text);
+
+                            string returned = command.ExecuteScalar().ToString();
+                            txtSn.Text = returned;
+                            int values = Convert.ToInt32(returned);
+                            returngrnnumber = values;
+                            command.Parameters.Clear();
+                            foreach (DataGridViewRow item in dgvgd.Rows)
+                            {
+                                command.CommandText = @"Declare @intqty decimal set @intqty=(select QtyAvble from tblProd where ProdCd=@prodcd) insert into GrnDetails(ProdCd,ProdNm,UnitCd,Quantity,CostPrice,LineNetAmt,LineVatAmt,GrnSrNo) values (@Prodcd,@ProdNm, @unit, @Quantity, @Cp, @LineNetAmt, @LineVatAmt, @SrNo) update tblprod set QtyAvble = QtyAvble + @Quantity where ProdCd = @ProdCd  declare @Newqty decimal set @newqty =(@IntQty + @quantity) insert into tblProdHist (Prod_Cd,Txn_Type, QTY,Int_QTy,Nw_Qty,Prod_Cp,Usr_Nm,Inv_NO,DOC_NO) values (@ProdCd,'GRN',@Quantity,@IntQty,@NewQty,@cp,@Username,@InvNo,@SrNo)";
+                                command.Parameters.AddWithValue("@ProdCd", item.Cells[0].Value);
+                                command.Parameters.AddWithValue("@ProdNm", item.Cells[1].Value);
+                                command.Parameters.AddWithValue("@unit", item.Cells[2].Value);
+                                command.Parameters.AddWithValue("@InvNo", txtInv.Text);
+                                command.Parameters.AddWithValue("@Quantity", item.Cells[3].Value);
+                                command.Parameters.AddWithValue("@CP", item.Cells[4].Value);
+                                command.Parameters.AddWithValue("@Username", Properties.Settings.Default.USERNAME);
+                                command.Parameters.AddWithValue("@LineVatAmt", item.Cells[5].Value);
+                                command.Parameters.AddWithValue("@LineNetAmt", item.Cells[6].Value);
+                                command.Parameters.AddWithValue("@SrNo", returngrnnumber);
+                                command.ExecuteNonQuery();
+                                command.Parameters.Clear();
+                            }
+                            sqlTransaction.Commit();
+                            MessageBox.Show("Grn Saved Successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
+                            if ((MessageBox.Show("DO YOU WANT PRINT?", "Print?", MessageBoxButtons.YesNo, MessageBoxIcon.Question)) == DialogResult.Yes)
+                            {
+                                List<GrnDetails> grnDetails1 = new List<GrnDetails>();
+                                foreach (DataGridViewRow row in dgvgd.Rows)
+                                {
+                                    GrnDetails grnDetails = new GrnDetails();
+                                    grnDetails.ProdCd = row.Cells[0].Value.ToString();
+                                    grnDetails.ProdNm = row.Cells[1].Value.ToString();
+                                    grnDetails.Unitcd = row.Cells[2].Value.ToString();
+                                    grnDetails.Quantity = Convert.ToDecimal( row.Cells[3].Value.ToString());
+                                    grnDetails.Cp = Convert.ToDecimal(row.Cells[5].Value.ToString());
+                                    grnDetails.LineVatAmount = Convert.ToDecimal(row.Cells[5].Value.ToString());
+                                    grnDetails.LineNetAmount = Convert.ToDecimal(row.Cells[6].Value.ToString());
+                                    grnDetails1.Add(grnDetails);
+                                }
+                                GrnMaster grnMaster = new GrnMaster();
+                                TransactionsRepository transactions = new TransactionsRepository();
+                                grnMaster = transactions.GetGrnMaster(Convert.ToInt32(txtSn.Text));
+                                GrnReport grnReport = new GrnReport();
+                                grnReport.SetDataSource(grnDetails1);
+                                grnReport.SetParameterValue("@Company", Properties.Settings.Default.COMPANYNAME);
+                                grnReport.SetParameterValue("@Branch", Properties.Settings.Default.BRANCHNAME);
+                                grnReport.SetParameterValue("@UserName", Properties.Settings.Default.USERNAME);
+                                grnReport.SetParameterValue("@SuppCd", grnMaster.SuppCd);
+                                grnReport.SetParameterValue("@SuppNm", grnMaster.SuppNm);
+                                grnReport.SetParameterValue("@InvoiceNo", grnMaster.InvoiceNumber);
+                                grnReport.SetParameterValue("@SrNo", grnMaster.SerialNumber);
+                                grnReport.SetParameterValue("@Date", grnMaster.DateReceived);
+                                grnReport.SetParameterValue("@VatAmt", grnMaster.VatAmount);
+                                grnReport.SetParameterValue("@NetAmt", grnMaster.NetAmount);
+                                grnReport.SetParameterValue("@TotalAmt", grnMaster.VatAmount+grnMaster.NetAmount);
+                                grnReport.SetParameterValue("@UserRcvd", grnMaster.UserName);
+                                grnReport.SetParameterValue("@Comment", "Original");
+                                Form form = new frmPrint(grnReport);
+                                form.Text = "Print Grn";
+                                form.Show();
+
+                            }
+                            btngdCancel_Click(sender, e);
+
+                            btnExit.Enabled = btngdPrint.Enabled = btngdNew.Enabled = true;
+                            btngdSave.Enabled = btngdCancel.Enabled = btngdadd.Enabled = btnExit.Enabled = false;
+                        }
+                        catch (Exception exe)
+                        {
+                            try
+                            {
+                                sqlTransaction.Rollback();
+                            }
+                            catch (Exception)
+                            {
+
+                                //Logger.Loggermethod(exe);
+                                MessageBox.Show(exe.Message, "Error Occurred.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                            //Logger.Loggermethod(exe);
+                            MessageBox.Show(exe.Message, "Error Occurred.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                        }
+
+
+                    }
+
+
+                }
+                catch (Exception exe)
+                {
+
+                    //Logger.Loggermethod(exe);
+                    MessageBox.Show(exe.Message, "Error Occurred.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+
+            }
+
+        }
+    } 
+        #endregion
+
+
+    
 }
 

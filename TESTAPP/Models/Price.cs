@@ -62,7 +62,7 @@ namespace SHOPLITE.Models
                         sql2.Parameters.AddWithValue("@PROD_CD",product.ProdCd);
                         sql2.Parameters.AddWithValue("@INT_CP",product.Old);
                         sql2.Parameters.AddWithValue("@NW_CP",product.New);
-                        sql2.Parameters.AddWithValue("@USR_NM","ADMIN");
+                        sql2.Parameters.AddWithValue("@USR_NM", Properties.Settings.Default.USERNAME);
                         sql2.Parameters.AddWithValue("@BRCH_CD","NRK");
                         sql2.Parameters.AddWithValue("@CMPY_CD","TT");
                         sql2.Parameters.AddWithValue("@CHG_DT",DateTime.Now);
@@ -112,7 +112,7 @@ namespace SHOPLITE.Models
                     sql2.Parameters.AddWithValue("@PROD_CD", product.ProdCd);
                     sql2.Parameters.AddWithValue("@INT_SP", product.Old);
                     sql2.Parameters.AddWithValue("@NW_SP", product.New);
-                    sql2.Parameters.AddWithValue("@USR_NM", "ADMIN");
+                    sql2.Parameters.AddWithValue("@USR_NM", Properties.Settings.Default.USERNAME);
                     sql2.Parameters.AddWithValue("@BRCH_CD", "NRK");
                     sql2.Parameters.AddWithValue("@CMPY_CD", "TT");
                     sql2.Parameters.AddWithValue("@CHG_DT", DateTime.Now);
