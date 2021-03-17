@@ -30,13 +30,15 @@ namespace SHOPLITE
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.mainpnl = new System.Windows.Forms.Panel();
+            this.btnStockcard = new System.Windows.Forms.Button();
             this.btnPrcChange = new System.Windows.Forms.Button();
+            this.mainpnl = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnStockcard);
             this.panel1.Controls.Add(this.btnPrcChange);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -44,13 +46,17 @@ namespace SHOPLITE
             this.panel1.Size = new System.Drawing.Size(800, 58);
             this.panel1.TabIndex = 0;
             // 
-            // mainpnl
+            // btnStockcard
             // 
-            this.mainpnl.BackColor = System.Drawing.Color.Transparent;
-            this.mainpnl.Location = new System.Drawing.Point(210, 127);
-            this.mainpnl.Name = "mainpnl";
-            this.mainpnl.Size = new System.Drawing.Size(476, 358);
-            this.mainpnl.TabIndex = 1;
+            this.btnStockcard.FlatAppearance.BorderColor = System.Drawing.Color.Blue;
+            this.btnStockcard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnStockcard.Location = new System.Drawing.Point(128, 12);
+            this.btnStockcard.Name = "btnStockcard";
+            this.btnStockcard.Size = new System.Drawing.Size(110, 39);
+            this.btnStockcard.TabIndex = 0;
+            this.btnStockcard.Text = "Stock Card";
+            this.btnStockcard.UseVisualStyleBackColor = true;
+            this.btnStockcard.Click += new System.EventHandler(this.btnStockCard_Click);
             // 
             // btnPrcChange
             // 
@@ -63,6 +69,14 @@ namespace SHOPLITE
             this.btnPrcChange.Text = "Price Change";
             this.btnPrcChange.UseVisualStyleBackColor = true;
             this.btnPrcChange.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // mainpnl
+            // 
+            this.mainpnl.BackColor = System.Drawing.Color.Transparent;
+            this.mainpnl.Location = new System.Drawing.Point(210, 127);
+            this.mainpnl.Name = "mainpnl";
+            this.mainpnl.Size = new System.Drawing.Size(476, 358);
+            this.mainpnl.TabIndex = 1;
             // 
             // frmReports
             // 
@@ -85,5 +99,6 @@ namespace SHOPLITE
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel mainpnl;
         private System.Windows.Forms.Button btnPrcChange;
+        private System.Windows.Forms.Button btnStockcard;
     }
 }

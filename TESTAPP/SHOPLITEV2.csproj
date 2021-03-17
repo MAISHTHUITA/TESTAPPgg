@@ -207,6 +207,12 @@
     <Compile Include="ModalForms\FrmNewVat.Designer.cs">
       <DependentUpon>FrmNewVat.cs</DependentUpon>
     </Compile>
+    <Compile Include="ModalForms\frmStockCard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModalForms\frmStockCard.Designer.cs">
+      <DependentUpon>frmStockCard.cs</DependentUpon>
+    </Compile>
     <Compile Include="ModalForms\frmPriceChange.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -272,6 +278,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ProductList.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\StockCard.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StockCard.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reports\SupplierList1.cs">
@@ -382,6 +394,9 @@
     <EmbeddedResource Include="ModalForms\FrmNewVat.resx">
       <DependentUpon>FrmNewVat.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ModalForms\frmStockCard.resx">
+      <DependentUpon>frmStockCard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ModalForms\frmPriceChange.resx">
       <DependentUpon>frmPriceChange.cs</DependentUpon>
     </EmbeddedResource>
@@ -422,6 +437,10 @@
     <EmbeddedResource Include="Reports\ProductList.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ProductList.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\StockCard.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>StockCard.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\SupplierList.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -477,6 +496,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="DbScript\script.sql" />
     <Content Include="TICK.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

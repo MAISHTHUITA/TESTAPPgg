@@ -204,6 +204,7 @@ namespace SHOPLITE
             this.SupTextBox.Name = "SupTextBox";
             this.SupTextBox.Size = new System.Drawing.Size(367, 23);
             this.SupTextBox.TabIndex = 53;
+            this.SupTextBox.Leave += new System.EventHandler(this.SupTextBox_Leave);
             // 
             // deptTextBox
             // 
@@ -215,6 +216,7 @@ namespace SHOPLITE
             this.deptTextBox.Name = "deptTextBox";
             this.deptTextBox.Size = new System.Drawing.Size(107, 23);
             this.deptTextBox.TabIndex = 52;
+            this.deptTextBox.Leave += new System.EventHandler(this.deptTextBox_Leave);
             // 
             // UnitTextBox
             // 
@@ -226,6 +228,7 @@ namespace SHOPLITE
             this.UnitTextBox.Name = "UnitTextBox";
             this.UnitTextBox.Size = new System.Drawing.Size(155, 23);
             this.UnitTextBox.TabIndex = 50;
+            this.UnitTextBox.Leave += new System.EventHandler(this.UnitTextBox_Leave);
             // 
             // VatTextBox
             // 
@@ -237,6 +240,7 @@ namespace SHOPLITE
             this.VatTextBox.Name = "VatTextBox";
             this.VatTextBox.Size = new System.Drawing.Size(138, 23);
             this.VatTextBox.TabIndex = 55;
+            this.VatTextBox.Leave += new System.EventHandler(this.VatTextBox_Leave);
             // 
             // spTextBox
             // 

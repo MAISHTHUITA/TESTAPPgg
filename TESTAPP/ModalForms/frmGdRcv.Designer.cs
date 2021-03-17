@@ -29,9 +29,9 @@ namespace SHOPLITE.ModalForms
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvgd = new System.Windows.Forms.DataGridView();
             this.ProdCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProdDesc = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -69,18 +69,18 @@ namespace SHOPLITE.ModalForms
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.lblTtlAmt = new System.Windows.Forms.Label();
+            this.lblVatAmt = new System.Windows.Forms.Label();
+            this.lblNetAmt = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.btngdPrint = new System.Windows.Forms.Button();
+            this.btnExit = new System.Windows.Forms.Button();
             this.btngdCancel = new System.Windows.Forms.Button();
             this.btngdNew = new System.Windows.Forms.Button();
             this.btngdSave = new System.Windows.Forms.Button();
-            this.btnExit = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.lblNetAmt = new System.Windows.Forms.Label();
-            this.lblVatAmt = new System.Windows.Forms.Label();
-            this.lblTtlAmt = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvgd)).BeginInit();
             this.pnlgdproduct.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -92,15 +92,15 @@ namespace SHOPLITE.ModalForms
             // 
             this.dgvgd.AllowUserToAddRows = false;
             this.dgvgd.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.Plum;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.Padding = new System.Windows.Forms.Padding(5);
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.Plum;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvgd.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Plum;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Plum;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvgd.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvgd.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvgd.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ProdCode,
@@ -116,22 +116,22 @@ namespace SHOPLITE.ModalForms
             this.dgvgd.Name = "dgvgd";
             this.dgvgd.ReadOnly = true;
             this.dgvgd.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvgd.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvgd.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvgd.RowHeadersWidth = 40;
             this.dgvgd.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(164)))), ((int)(((byte)(194)))));
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.Black;
-            this.dgvgd.RowsDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(164)))), ((int)(((byte)(194)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvgd.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvgd.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvgd.Size = new System.Drawing.Size(914, 172);
             this.dgvgd.TabIndex = 5;
@@ -217,7 +217,7 @@ namespace SHOPLITE.ModalForms
             // 
             // btngdclear
             // 
-            this.btngdclear.Location = new System.Drawing.Point(792, 36);
+            this.btngdclear.Location = new System.Drawing.Point(792, 41);
             this.btngdclear.Name = "btngdclear";
             this.btngdclear.Size = new System.Drawing.Size(91, 22);
             this.btngdclear.TabIndex = 3;
@@ -227,7 +227,7 @@ namespace SHOPLITE.ModalForms
             // 
             // btngdadd
             // 
-            this.btngdadd.Location = new System.Drawing.Point(707, 36);
+            this.btngdadd.Location = new System.Drawing.Point(707, 41);
             this.btngdadd.Name = "btngdadd";
             this.btngdadd.Size = new System.Drawing.Size(75, 22);
             this.btngdadd.TabIndex = 2;
@@ -251,9 +251,9 @@ namespace SHOPLITE.ModalForms
             this.txtgdQty.BackColor = System.Drawing.Color.White;
             this.txtgdQty.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtgdQty.ForeColor = System.Drawing.Color.Black;
-            this.txtgdQty.Location = new System.Drawing.Point(567, 37);
+            this.txtgdQty.Location = new System.Drawing.Point(572, 42);
             this.txtgdQty.Name = "txtgdQty";
-            this.txtgdQty.Size = new System.Drawing.Size(50, 21);
+            this.txtgdQty.Size = new System.Drawing.Size(98, 21);
             this.txtgdQty.TabIndex = 1;
             // 
             // txtgdCuqty
@@ -262,9 +262,9 @@ namespace SHOPLITE.ModalForms
             this.txtgdCuqty.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtgdCuqty.Enabled = false;
             this.txtgdCuqty.ForeColor = System.Drawing.Color.Black;
-            this.txtgdCuqty.Location = new System.Drawing.Point(420, 37);
+            this.txtgdCuqty.Location = new System.Drawing.Point(413, 42);
             this.txtgdCuqty.Name = "txtgdCuqty";
-            this.txtgdCuqty.Size = new System.Drawing.Size(51, 21);
+            this.txtgdCuqty.Size = new System.Drawing.Size(81, 21);
             this.txtgdCuqty.TabIndex = 1;
             // 
             // txtgdSp
@@ -273,9 +273,9 @@ namespace SHOPLITE.ModalForms
             this.txtgdSp.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtgdSp.Enabled = false;
             this.txtgdSp.ForeColor = System.Drawing.Color.Black;
-            this.txtgdSp.Location = new System.Drawing.Point(301, 37);
+            this.txtgdSp.Location = new System.Drawing.Point(278, 42);
             this.txtgdSp.Name = "txtgdSp";
-            this.txtgdSp.Size = new System.Drawing.Size(45, 21);
+            this.txtgdSp.Size = new System.Drawing.Size(72, 21);
             this.txtgdSp.TabIndex = 1;
             // 
             // txtgdCp
@@ -284,9 +284,9 @@ namespace SHOPLITE.ModalForms
             this.txtgdCp.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtgdCp.Enabled = false;
             this.txtgdCp.ForeColor = System.Drawing.Color.Black;
-            this.txtgdCp.Location = new System.Drawing.Point(193, 37);
+            this.txtgdCp.Location = new System.Drawing.Point(171, 42);
             this.txtgdCp.Name = "txtgdCp";
-            this.txtgdCp.Size = new System.Drawing.Size(53, 21);
+            this.txtgdCp.Size = new System.Drawing.Size(75, 21);
             this.txtgdCp.TabIndex = 1;
             // 
             // txtgdVatcd
@@ -295,7 +295,7 @@ namespace SHOPLITE.ModalForms
             this.txtgdVatcd.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtgdVatcd.Enabled = false;
             this.txtgdVatcd.ForeColor = System.Drawing.Color.Black;
-            this.txtgdVatcd.Location = new System.Drawing.Point(91, 37);
+            this.txtgdVatcd.Location = new System.Drawing.Point(91, 42);
             this.txtgdVatcd.Name = "txtgdVatcd";
             this.txtgdVatcd.Size = new System.Drawing.Size(49, 21);
             this.txtgdVatcd.TabIndex = 1;
@@ -335,7 +335,7 @@ namespace SHOPLITE.ModalForms
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(478, 42);
+            this.label11.Location = new System.Drawing.Point(500, 44);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(66, 16);
             this.label11.TabIndex = 0;
@@ -344,7 +344,7 @@ namespace SHOPLITE.ModalForms
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(354, 42);
+            this.label10.Location = new System.Drawing.Point(354, 44);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(61, 16);
             this.label10.TabIndex = 0;
@@ -353,7 +353,7 @@ namespace SHOPLITE.ModalForms
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(251, 42);
+            this.label9.Location = new System.Drawing.Point(251, 44);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(32, 16);
             this.label9.TabIndex = 0;
@@ -362,7 +362,7 @@ namespace SHOPLITE.ModalForms
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(143, 42);
+            this.label8.Location = new System.Drawing.Point(143, 44);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(32, 16);
             this.label8.TabIndex = 0;
@@ -371,7 +371,7 @@ namespace SHOPLITE.ModalForms
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(17, 42);
+            this.label7.Location = new System.Drawing.Point(17, 44);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(67, 16);
             this.label7.TabIndex = 0;
@@ -407,7 +407,8 @@ namespace SHOPLITE.ModalForms
             this.panel3.Controls.Add(this.label2);
             this.panel3.Controls.Add(this.label1);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.ForeColor = System.Drawing.Color.IndianRed;
+            this.panel3.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel3.ForeColor = System.Drawing.Color.Black;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(914, 69);
@@ -418,9 +419,9 @@ namespace SHOPLITE.ModalForms
             this.dtgd.CustomFormat = "dd-MMM-yyyy";
             this.dtgd.Enabled = false;
             this.dtgd.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtgd.Location = new System.Drawing.Point(442, 9);
+            this.dtgd.Location = new System.Drawing.Point(356, 9);
             this.dtgd.Name = "dtgd";
-            this.dtgd.Size = new System.Drawing.Size(186, 22);
+            this.dtgd.Size = new System.Drawing.Size(154, 22);
             this.dtgd.TabIndex = 2;
             // 
             // txtgdsupcd
@@ -434,7 +435,7 @@ namespace SHOPLITE.ModalForms
             // txtInv
             // 
             this.txtInv.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtInv.Location = new System.Drawing.Point(707, 9);
+            this.txtInv.Location = new System.Drawing.Point(750, 9);
             this.txtInv.Name = "txtInv";
             this.txtInv.Size = new System.Drawing.Size(118, 22);
             this.txtInv.TabIndex = 1;
@@ -446,13 +447,16 @@ namespace SHOPLITE.ModalForms
             this.txtSn.Size = new System.Drawing.Size(155, 22);
             this.txtSn.TabIndex = 0;
             this.txtSn.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtgdsupcd_KeyDown);
+            this.txtSn.Leave += new System.EventHandler(this.txtSn_Leave);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(20, 43);
+            this.label3.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(20, 39);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(61, 14);
+            this.label3.Size = new System.Drawing.Size(62, 14);
             this.label3.TabIndex = 0;
             this.label3.Text = "Sup. Cd:";
             // 
@@ -460,7 +464,7 @@ namespace SHOPLITE.ModalForms
             // 
             this.lblsupnm.AutoSize = true;
             this.lblsupnm.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblsupnm.Location = new System.Drawing.Point(264, 43);
+            this.lblsupnm.Location = new System.Drawing.Point(264, 39);
             this.lblsupnm.Name = "lblsupnm";
             this.lblsupnm.Size = new System.Drawing.Size(0, 14);
             this.lblsupnm.TabIndex = 0;
@@ -469,18 +473,22 @@ namespace SHOPLITE.ModalForms
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(634, 17);
+            this.label2.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(663, 13);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(52, 14);
+            this.label2.Size = new System.Drawing.Size(55, 14);
             this.label2.TabIndex = 0;
             this.label2.Text = "Inv No.";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(11, 17);
+            this.label1.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(11, 13);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(67, 14);
+            this.label1.Size = new System.Drawing.Size(72, 14);
             this.label1.TabIndex = 0;
             this.label1.Text = "Serial No.";
             // 
@@ -499,6 +507,71 @@ namespace SHOPLITE.ModalForms
             this.panel7.Size = new System.Drawing.Size(914, 145);
             this.panel7.TabIndex = 7;
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.lblTtlAmt);
+            this.panel1.Controls.Add(this.lblVatAmt);
+            this.panel1.Controls.Add(this.lblNetAmt);
+            this.panel1.Controls.Add(this.label14);
+            this.panel1.Controls.Add(this.label13);
+            this.panel1.Controls.Add(this.label12);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(910, 81);
+            this.panel1.TabIndex = 3;
+            // 
+            // lblTtlAmt
+            // 
+            this.lblTtlAmt.AutoSize = true;
+            this.lblTtlAmt.Location = new System.Drawing.Point(754, 51);
+            this.lblTtlAmt.Name = "lblTtlAmt";
+            this.lblTtlAmt.Size = new System.Drawing.Size(0, 14);
+            this.lblTtlAmt.TabIndex = 1;
+            // 
+            // lblVatAmt
+            // 
+            this.lblVatAmt.AutoSize = true;
+            this.lblVatAmt.Location = new System.Drawing.Point(753, 30);
+            this.lblVatAmt.Name = "lblVatAmt";
+            this.lblVatAmt.Size = new System.Drawing.Size(0, 14);
+            this.lblVatAmt.TabIndex = 1;
+            // 
+            // lblNetAmt
+            // 
+            this.lblNetAmt.AutoSize = true;
+            this.lblNetAmt.Location = new System.Drawing.Point(754, 11);
+            this.lblNetAmt.Name = "lblNetAmt";
+            this.lblNetAmt.Size = new System.Drawing.Size(0, 14);
+            this.lblNetAmt.TabIndex = 1;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(677, 51);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(70, 14);
+            this.label14.TabIndex = 0;
+            this.label14.Text = "Total Amt:";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(687, 30);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(60, 14);
+            this.label13.TabIndex = 0;
+            this.label13.Text = "Vat Amt:";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(685, 11);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(62, 14);
+            this.label12.TabIndex = 0;
+            this.label12.Text = "Net Amt:";
+            // 
             // btngdPrint
             // 
             this.btngdPrint.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(173)))), ((int)(((byte)(9)))), ((int)(((byte)(20)))), ((int)(((byte)(143)))));
@@ -512,6 +585,22 @@ namespace SHOPLITE.ModalForms
             this.btngdPrint.TabIndex = 2;
             this.btngdPrint.Text = "Print";
             this.btngdPrint.UseVisualStyleBackColor = false;
+            this.btngdPrint.Click += new System.EventHandler(this.btngdPrint_Click);
+            // 
+            // btnExit
+            // 
+            this.btnExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(173)))), ((int)(((byte)(9)))), ((int)(((byte)(20)))), ((int)(((byte)(143)))));
+            this.btnExit.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(192)))), ((int)(((byte)(240)))));
+            this.btnExit.FlatAppearance.BorderSize = 2;
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExit.ForeColor = System.Drawing.Color.White;
+            this.btnExit.Location = new System.Drawing.Point(658, 96);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(99, 36);
+            this.btnExit.TabIndex = 4;
+            this.btnExit.Text = "EXIT";
+            this.btnExit.UseVisualStyleBackColor = false;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // btngdCancel
             // 
@@ -557,86 +646,6 @@ namespace SHOPLITE.ModalForms
             this.btngdSave.Text = "Save";
             this.btngdSave.UseVisualStyleBackColor = false;
             this.btngdSave.Click += new System.EventHandler(this.btngdSave_Click);
-            // 
-            // btnExit
-            // 
-            this.btnExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(173)))), ((int)(((byte)(9)))), ((int)(((byte)(20)))), ((int)(((byte)(143)))));
-            this.btnExit.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(192)))), ((int)(((byte)(240)))));
-            this.btnExit.FlatAppearance.BorderSize = 2;
-            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExit.ForeColor = System.Drawing.Color.White;
-            this.btnExit.Location = new System.Drawing.Point(658, 96);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(99, 36);
-            this.btnExit.TabIndex = 4;
-            this.btnExit.Text = "EXIT";
-            this.btnExit.UseVisualStyleBackColor = false;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.lblTtlAmt);
-            this.panel1.Controls.Add(this.lblVatAmt);
-            this.panel1.Controls.Add(this.lblNetAmt);
-            this.panel1.Controls.Add(this.label14);
-            this.panel1.Controls.Add(this.label13);
-            this.panel1.Controls.Add(this.label12);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(910, 81);
-            this.panel1.TabIndex = 3;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(685, 11);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(62, 14);
-            this.label12.TabIndex = 0;
-            this.label12.Text = "Net Amt:";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(687, 30);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(60, 14);
-            this.label13.TabIndex = 0;
-            this.label13.Text = "Vat Amt:";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(677, 51);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(70, 14);
-            this.label14.TabIndex = 0;
-            this.label14.Text = "Total Amt:";
-            // 
-            // lblNetAmt
-            // 
-            this.lblNetAmt.AutoSize = true;
-            this.lblNetAmt.Location = new System.Drawing.Point(754, 11);
-            this.lblNetAmt.Name = "lblNetAmt";
-            this.lblNetAmt.Size = new System.Drawing.Size(0, 14);
-            this.lblNetAmt.TabIndex = 1;
-            // 
-            // lblVatAmt
-            // 
-            this.lblVatAmt.AutoSize = true;
-            this.lblVatAmt.Location = new System.Drawing.Point(753, 30);
-            this.lblVatAmt.Name = "lblVatAmt";
-            this.lblVatAmt.Size = new System.Drawing.Size(0, 14);
-            this.lblVatAmt.TabIndex = 1;
-            // 
-            // lblTtlAmt
-            // 
-            this.lblTtlAmt.AutoSize = true;
-            this.lblTtlAmt.Location = new System.Drawing.Point(754, 51);
-            this.lblTtlAmt.Name = "lblTtlAmt";
-            this.lblTtlAmt.Size = new System.Drawing.Size(0, 14);
-            this.lblTtlAmt.TabIndex = 1;
             // 
             // frmGdRcv
             // 

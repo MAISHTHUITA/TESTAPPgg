@@ -92,6 +92,7 @@ namespace SHOPLITE.SearchFoms
             this.dgvProds.TabIndex = 5;
             this.dgvProds.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProds_CellContentDoubleClick);
             this.dgvProds.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvProds_KeyDown);
+            this.dgvProds.KeyUp += new System.Windows.Forms.KeyEventHandler(this.dgvProds_KeyUp);
             // 
             // ProdCd
             // 

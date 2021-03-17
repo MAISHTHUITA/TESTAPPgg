@@ -65,13 +65,14 @@ namespace SHOPLITE.SearchFoms
         {
             if (e.KeyCode == Keys.Enter)
             {
-                if (dgvSupp.CurrentCell.RowIndex < 1)
+                e.SuppressKeyPress = true;
+                if (dgvSupp.CurrentRow.Index < 0)
                 {
 
                 }
                 else
                 {
-                    supplier.SuppCd = dgvSupp.SelectedRows[0].Cells[0].Value.ToString();
+                    supplier.SuppCd = dgvSupp.CurrentRow.Cells[0].Value.ToString();
                     this.Close();
                 }
             }

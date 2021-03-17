@@ -32,5 +32,14 @@ namespace SHOPLITE
         {
             get { if (_instance == null) { _instance = new frmReports(); }; return _instance; }
         }
+        private void btnStockCard_Click(object sender, EventArgs e)
+        {
+            Form form = frmStockCard.Instance;
+            form.TopLevel = false;
+
+            mainpnl.Controls.Add(form);
+            form.BringToFront();
+            form.Show();
+        }
     }
 }

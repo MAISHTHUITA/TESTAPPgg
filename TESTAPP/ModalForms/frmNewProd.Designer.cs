@@ -185,6 +185,7 @@ namespace SHOPLITE.ModalForms
             this.SupTextBox.Name = "SupTextBox";
             this.SupTextBox.Size = new System.Drawing.Size(367, 23);
             this.SupTextBox.TabIndex = 6;
+            this.SupTextBox.Leave += new System.EventHandler(this.SupTextBox_Leave);
             // 
             // deptTextBox
             // 
@@ -196,6 +197,7 @@ namespace SHOPLITE.ModalForms
             this.deptTextBox.Name = "deptTextBox";
             this.deptTextBox.Size = new System.Drawing.Size(107, 23);
             this.deptTextBox.TabIndex = 5;
+            this.deptTextBox.Leave += new System.EventHandler(this.deptTextBox_Leave);
             // 
             // UnitTextBox
             // 
@@ -207,6 +209,7 @@ namespace SHOPLITE.ModalForms
             this.UnitTextBox.Name = "UnitTextBox";
             this.UnitTextBox.Size = new System.Drawing.Size(155, 23);
             this.UnitTextBox.TabIndex = 4;
+            this.UnitTextBox.Leave += new System.EventHandler(this.UnitTextBox_Leave);
             // 
             // VatTextBox
             // 
@@ -218,6 +221,7 @@ namespace SHOPLITE.ModalForms
             this.VatTextBox.Name = "VatTextBox";
             this.VatTextBox.Size = new System.Drawing.Size(138, 23);
             this.VatTextBox.TabIndex = 9;
+            this.VatTextBox.Leave += new System.EventHandler(this.VatTextBox_Leave);
             // 
             // spTextBox
             // 

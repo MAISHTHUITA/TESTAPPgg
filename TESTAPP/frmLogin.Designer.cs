@@ -55,7 +55,7 @@ namespace SHOPLITE
             this.headerpanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.headerpanel.Location = new System.Drawing.Point(0, 0);
             this.headerpanel.Name = "headerpanel";
-            this.headerpanel.Size = new System.Drawing.Size(377, 141);
+            this.headerpanel.Size = new System.Drawing.Size(373, 141);
             this.headerpanel.TabIndex = 0;
             // 
             // label2
@@ -96,7 +96,7 @@ namespace SHOPLITE
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 141);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(377, 359);
+            this.panel1.Size = new System.Drawing.Size(373, 355);
             this.panel1.TabIndex = 1;
             // 
             // lblError
@@ -159,9 +159,9 @@ namespace SHOPLITE
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(95, 6);
+            this.pictureBox1.Location = new System.Drawing.Point(85, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(161, 109);
+            this.pictureBox1.Size = new System.Drawing.Size(168, 122);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
@@ -193,12 +193,15 @@ namespace SHOPLITE
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(377, 500);
+            this.ClientSize = new System.Drawing.Size(373, 496);
             this.ControlBox = false;
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.headerpanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.KeyPreview = true;
             this.Name = "frmLogin";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.frmLogin_Load);
             this.headerpanel.ResumeLayout(false);

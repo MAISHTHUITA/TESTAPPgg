@@ -133,6 +133,7 @@ namespace SHOPLITE
             // 
             this.txtPassword.Location = new System.Drawing.Point(100, 126);
             this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(151, 20);
             this.txtPassword.TabIndex = 3;
             // 
@@ -154,6 +155,8 @@ namespace SHOPLITE
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Dbsettings";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Set Database Settings";
             this.Load += new System.EventHandler(this.Dbsettings_Load);

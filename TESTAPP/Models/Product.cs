@@ -50,7 +50,7 @@ namespace SHOPLITE.Models
         bool DeleteProduct(string Productcode);
         Product GetProduct(string Productcode);
         bool SaveScan(ScanCode ScanCode);
-       
+
         IEnumerable<ScanCode> GetScanCodes();
         IEnumerable<ScanCode> ProdScans(string ProdCd);
         bool CheckScan(string Scancode);
@@ -65,6 +65,132 @@ namespace SHOPLITE.Models
         public string CreatedBy { get; set; }
         public string Unitcd { get; set; }
 
+    }
+    public class StockCardm
+    {
+        public string ProdCd { get; set; }
+        public string ProdNm { get; set; }
+        public string ProdSupplier { get; set; }
+        public string ProdDepartment { get; set; }
+        public decimal Cp { get; set; }
+        public decimal Sp { get; set; }
+        public int Vat { get; set; }
+        public string ProdUnit { get; set; }
+        public decimal QuantityAvailable { get; set; }
+        public string TXN_TYPE { get; set; }
+        public int DOC_NO { get; set; }
+        public decimal QTY { get; set; }
+        public decimal BALANCE { get; set; }
+        public string ACCOUNT_NO { get; set; }
+        public DateTime TXN_DATE { get; set; }
+        public decimal TXN_Price { get; set; }
+        public IEnumerable<StockCardm> stockCard(string fromprod, string toprod, string fromsup, string tosup, DateTime fromdt, DateTime todt, string fromdept, string todept)
+        {
+            List<StockCardm> stocks = new List<StockCardm>();
+
+            using (SqlConnection con = new SqlConnection(DbCon.connection))
+            {
+                SqlCommand cmd = new SqlCommand("SpStockCard", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@fromProd",fromprod);
+                cmd.Parameters.AddWithValue("@toProd", toprod);
+                cmd.Parameters.AddWithValue("@fromdt", fromdt.Date);
+                cmd.Parameters.AddWithValue("@todt", todt.Date.AddHours(23).AddMinutes(59).AddSeconds(59));
+                cmd.Parameters.AddWithValue("@fromsupp", fromsup);
+                cmd.Parameters.AddWithValue("@tosupp", tosup);
+                cmd.Parameters.AddWithValue("@fromdept", fromdept);
+                cmd.Parameters.AddWithValue("@todept", todept);
+                try
+                {
+                    if (con.State == ConnectionState.Closed)
+                        con.Open();
+                    SqlDataReader rdr = cmd.ExecuteReader();
+                    if (rdr.HasRows)
+                    {
+                        while (rdr.Read())
+                        {
+                            StockCardm card = new StockCardm();
+                            //ENSURE WE DONOT GET DBNULL ERROR WHEN A VALUE IS NULL
+                            if (rdr["ProdCd"]!=DBNull.Value)
+                            {
+                                card.ProdCd = rdr["ProdCd"].ToString();
+                            }
+                            if (rdr["ProdNm"] != DBNull.Value)
+                            {
+                                card.ProdNm = rdr["ProdNm"].ToString();
+                            }
+                            if (rdr["ProdSupplier"] != DBNull.Value)
+                            {
+                                card.ProdSupplier = rdr["ProdSupplier"].ToString();
+                            }
+                            if (rdr["ProdDepartment"] != DBNull.Value)
+                            {
+                                card.ProdDepartment = rdr["ProdDepartment"].ToString();
+                            }
+                            if (rdr["Cp"] != DBNull.Value)
+                            {
+                                card.Cp = Convert.ToDecimal(rdr["Cp"]);
+                            }
+                            if (rdr["Sp"] != DBNull.Value)
+                            {
+                                card.Sp = Convert.ToDecimal(rdr["Sp"]);
+                            }
+                            if (rdr["Vat"] != DBNull.Value)
+                            {
+                                card.Vat = Convert.ToInt32(rdr["Vat"]);
+                            }
+                            if (rdr["ProdUnit"] != DBNull.Value)
+                            {
+                                card.ProdUnit = rdr["ProdUnit"].ToString();
+                            }
+                            if (rdr["TXN_TYPE"] != DBNull.Value)
+                            {
+                                card.TXN_TYPE = rdr["TXN_TYPE"].ToString();
+                            }
+                            if (rdr["QuantityAvailable"] != DBNull.Value)
+                            {
+                                card.QuantityAvailable = Convert.ToDecimal(rdr["QuantityAvailable"]);
+                            }
+                            if (rdr["TXN_DATE"] != DBNull.Value)
+                            {
+                                card.TXN_DATE = (DateTime)rdr["TXN_DATE"];
+                            }
+                            if (rdr["TXN_Price"] != DBNull.Value)
+                            {
+                                card.TXN_Price = Convert.ToDecimal(rdr["TXN_Price"]);
+                            }
+                            if (rdr["QTY"] != DBNull.Value)
+                            {
+                                card.QTY = Convert.ToDecimal(rdr["QTY"]);
+                            }
+                            if (rdr["ACCOUNT_NO"] != DBNull.Value)
+                            {
+                                card.ACCOUNT_NO = rdr["ACCOUNT_NO"].ToString();
+                            }
+                            if (rdr["BALANCE"] != DBNull.Value)
+                            {
+                                card.BALANCE = Convert.ToDecimal(rdr["BALANCE"]);
+                            }
+                            if (rdr["DOC_NO"] != DBNull.Value)
+                            {
+                                card.DOC_NO = Convert.ToInt32(rdr["DOC_NO"]);
+                            }
+                           
+                            stocks.Add(card);
+                        }
+                    }
+                    else
+                        return
+                            stocks;
+                }
+                catch (Exception EXE)
+                {
+
+                    return stocks;
+                }
+            }
+            return stocks;
+        }
     }
 
     public class ProductRepository : IProductRepository
@@ -297,7 +423,7 @@ namespace SHOPLITE.Models
                 {
                     SqlCommand cmd = new SqlCommand("delete from  tblscncd where  Scancode=@scancode", con);
                     cmd.Parameters.AddWithValue("@ScanCode", ScanCode);
-                    
+
                     if (con.State == ConnectionState.Closed) con.Open();
                     cmd.ExecuteNonQuery();
                     return true;

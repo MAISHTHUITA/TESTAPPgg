@@ -87,7 +87,7 @@ namespace SHOPLITE.ModalForms
             product.DeptCd = deptTextBox.Text;
             product.SuppCd = SupTextBox.Text;
             product.VatCd = VatTextBox.Text;
-            product.CreatedBy = "Admin";
+            product.CreatedBy = Properties.Settings.Default.USERNAME;
             product.Cp = Convert.ToDecimal(cpTextBox.Text);
             product.Sp = Convert.ToDecimal(spTextBox.Text);
             
@@ -101,6 +101,78 @@ namespace SHOPLITE.ModalForms
                 MessageBox.Show("Error occorred. Please try again.");
 
 
+        }
+
+        private void UnitTextBox_Leave(object sender, EventArgs e)
+        {
+            if (!String.IsNullOrEmpty(UnitTextBox.Text))
+            {
+                UnitRepository repository = new UnitRepository();
+                Unit unit = new Unit();
+                unit = repository.GetUnit(UnitTextBox.Text);
+                if (unit == null)
+                {
+                    MessageBox.Show("Please Enter Valid Unit Code");
+                    UnitTextBox.Focus();
+                    return;
+                }
+                else
+                    UnitTextBox.Text = unit.UnitCd;
+            }
+        }
+
+        private void deptTextBox_Leave(object sender, EventArgs e)
+        {
+            if (!String.IsNullOrEmpty(deptTextBox.Text))
+            {
+                DepartmentRepository repository = new DepartmentRepository();
+                Department department = new Department();
+                department = repository.GetDepartment(deptTextBox.Text);
+                if (department == null)
+                {
+                    MessageBox.Show("Please Enter Valid Department Code");
+                    deptTextBox.Focus();
+                    return;
+                }
+                else
+                    deptTextBox.Text = department.DeptCd;
+            }
+        }
+
+        private void SupTextBox_Leave(object sender, EventArgs e)
+        {
+            if (!String.IsNullOrEmpty(UnitTextBox.Text))
+            {
+                SupplierRepository repository = new SupplierRepository();
+                Supplier supplier = new Supplier();
+                supplier = repository.GetSupplier(SupTextBox.Text);
+                if (supplier == null)
+                {
+                    MessageBox.Show("Please Enter Valid Supplier Code");
+                    SupTextBox.Focus();
+                    return;
+                }
+                else
+                    SupTextBox.Text = supplier.SuppCd;
+            }
+        }
+
+        private void VatTextBox_Leave(object sender, EventArgs e)
+        {
+            if (!String.IsNullOrEmpty(VatTextBox.Text))
+            {
+                VatRepository repository = new VatRepository();
+                Vat vat = new Vat();
+                vat = repository.GetVat(VatTextBox.Text);
+                if (vat == null)
+                {
+                    MessageBox.Show("Please Enter Valid Vat Code");
+                    VatTextBox.Focus();
+                    return;
+                }
+                else
+                    VatTextBox.Text = vat.VatCd;
+            }
         }
     }
 }

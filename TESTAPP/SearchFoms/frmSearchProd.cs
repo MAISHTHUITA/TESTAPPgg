@@ -58,18 +58,23 @@ namespace SHOPLITE.SearchFoms
         private void frmSearchProd_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Escape)
-                Close(); 
+                Close();
             else if (e.KeyCode == Keys.Down)
+            {
                 dgvProds.Focus();
+                dgvProds.CurrentCell = dgvProds.Rows[0].Cells[0];
+            }
             else if (e.KeyCode == Keys.Enter)
                 dgvProds.Focus();
         }
 
         private void dgvProds_KeyDown(object sender, KeyEventArgs e)
         {
+           
             if (e.KeyCode == Keys.Enter)
             {
-                if (dgvProds.CurrentRow.Index < 1)
+                e.SuppressKeyPress = true;
+                if (dgvProds.CurrentRow.Index < 0)
                 {
 
                 }
@@ -83,7 +88,19 @@ namespace SHOPLITE.SearchFoms
 
         private void frmSearchProd_Load(object sender, EventArgs e)
         {
+            txtSearchProd.Focus();
+        }
 
+        private void dgvProds_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode==Keys.Enter)
+            {
+                int currentrow = dgvProds.CurrentRow.Index;
+                if (currentrow ==0)
+                {
+                    dgvProds.CurrentCell = dgvProds.Rows[currentrow].Cells[0];
+                }
+            }
         }
     }
 }

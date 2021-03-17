@@ -12,7 +12,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
 namespace SHOPLITE.ModalForms
 {
     public partial class frmGdRcv : Form
@@ -40,36 +39,24 @@ namespace SHOPLITE.ModalForms
         private void frmGdRcv_Load(object sender, EventArgs e)
         {
 
-            txtgdsupcd.Enabled = false;
+            txtgdsupcd.Enabled = txtInv.Enabled = false;
+            btngdPrint.Enabled = btngdSave.Enabled = false;
             pnlgdproduct.Enabled = false;
         }
         private void btngdNew_Click(object sender, EventArgs e)
         {
-            if (dgvgd.Rows.Count > 0)
-            {
-                if (MessageBox.Show("Are you sure you want to cancel the current transaction?", "Cancel?", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
-                {
-                    txtgdsupcd.Text = txtInv.Text = txtSn.Text = lblsupnm.Text = "";
-                    btngdclear_Click(sender, e);
-                    txtSn.Enabled = false;
-                    txtgdsupcd.Enabled = txtInv.Enabled = true;
-                    dgvgd.Rows.Clear();
-                    txtInv.Focus();
 
-                }
-                else
-                {
-                    return;
-                }
-            }
-            else
-            {
-                txtgdsupcd.Text = txtInv.Text = txtSn.Text = lblsupnm.Text = "";
-                btngdclear_Click(sender, e);
-                txtSn.Enabled = false;
-                txtgdsupcd.Enabled = txtInv.Enabled = true;
-                txtInv.Focus();
-            }
+            txtgdsupcd.Text = txtInv.Text = txtSn.Text = lblsupnm.Text = "";
+            btngdclear_Click(sender, e);
+            txtSn.Enabled = false;
+            btngdSave.Enabled = true;
+            btngdPrint.Enabled = false;
+            btnExit.Enabled = btngdCancel.Enabled = true;
+            txtgdsupcd.Enabled = txtInv.Enabled = true;
+            dgvgd.Rows.Clear();
+            dtgd.Value = DateTime.Now.Date;
+            lblNetAmt.Text = lblTtlAmt.Text = lblVatAmt.Text = "0.00";
+            txtInv.Focus();
 
         }
 
@@ -96,6 +83,7 @@ namespace SHOPLITE.ModalForms
                 {
                     txtgdsupcd.Text = supplier.SuppCd;
                     lblsupnm.Text = supplier.SuppNm;
+                    txtgdsupcd.Enabled = false;
                     pnlgdproduct.Enabled = true;
                     txtgdProdNm.Focus();
 
@@ -279,6 +267,7 @@ namespace SHOPLITE.ModalForms
             frmGdRcv_Load(sender, e);
             txtInv.Enabled = false;
             txtSn.Enabled = true;
+            dtgd.Value = DateTime.Now.Date;
             txtSn.Focus();
         }
         #region Save and Retrieve
@@ -288,10 +277,9 @@ namespace SHOPLITE.ModalForms
             {
                 if (String.IsNullOrEmpty(txtInv.Text))
                 {
+                    MessageBox.Show("Please enter Invoice Number");
                     return;
                 }
-
-                //gmaster.GrnDetail = grndets;
                 try
                 {
 
@@ -320,9 +308,10 @@ namespace SHOPLITE.ModalForms
                             command.Parameters.Clear();
                             foreach (DataGridViewRow item in dgvgd.Rows)
                             {
-                                command.CommandText = @"Declare @intqty decimal set @intqty=(select QtyAvble from tblProd where ProdCd=@prodcd) insert into GrnDetails(ProdCd,ProdNm,UnitCd,Quantity,CostPrice,LineNetAmt,LineVatAmt,GrnSrNo) values (@Prodcd,@ProdNm, @unit, @Quantity, @Cp, @LineNetAmt, @LineVatAmt, @SrNo) update tblprod set QtyAvble = QtyAvble + @Quantity where ProdCd = @ProdCd  declare @Newqty decimal set @newqty =(@IntQty + @quantity) insert into tblProdHist (Prod_Cd,Txn_Type, QTY,Int_QTy,Nw_Qty,Prod_Cp,Usr_Nm,Inv_NO,DOC_NO) values (@ProdCd,'GRN',@Quantity,@IntQty,@NewQty,@cp,@Username,@InvNo,@SrNo)";
+                                command.CommandText = @"Declare @intqty decimal set @intqty=(select QtyAvble from tblProd where ProdCd=@prodcd) insert into GrnDetails(ProdCd,ProdNm,UnitCd,Quantity,CostPrice,LineNetAmt,LineVatAmt,GrnSrNo) values (@Prodcd,@ProdNm, @unit, @Quantity, @Cp, @LineNetAmt, @LineVatAmt, @SrNo) update tblprod set QtyAvble = QtyAvble + @Quantity where ProdCd = @ProdCd  declare @Newqty decimal set @newqty =(@IntQty + @quantity) insert into tblProdHist (Prod_Cd,Txn_Type, QTY,Int_QTy,Nw_Qty,Prod_Cp,Usr_Nm,Inv_NO,DOC_NO,ACCOUNT_NO) values (@ProdCd,'GRN',@Quantity,@IntQty,@NewQty,@cp,@Username,@InvNo,@SrNo,@SuppNm)";
                                 command.Parameters.AddWithValue("@ProdCd", item.Cells[0].Value);
                                 command.Parameters.AddWithValue("@ProdNm", item.Cells[1].Value);
+                                command.Parameters.AddWithValue("@SuppNm", lblsupnm.Text);
                                 command.Parameters.AddWithValue("@unit", item.Cells[2].Value);
                                 command.Parameters.AddWithValue("@InvNo", txtInv.Text);
                                 command.Parameters.AddWithValue("@Quantity", item.Cells[3].Value);
@@ -336,50 +325,8 @@ namespace SHOPLITE.ModalForms
                             }
                             sqlTransaction.Commit();
                             MessageBox.Show("Grn Saved Successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-
-                            if ((MessageBox.Show("DO YOU WANT PRINT?", "Print?", MessageBoxButtons.YesNo, MessageBoxIcon.Question)) == DialogResult.Yes)
-                            {
-                                List<GrnDetails> grnDetails1 = new List<GrnDetails>();
-                                foreach (DataGridViewRow row in dgvgd.Rows)
-                                {
-                                    GrnDetails grnDetails = new GrnDetails();
-                                    grnDetails.ProdCd = row.Cells[0].Value.ToString();
-                                    grnDetails.ProdNm = row.Cells[1].Value.ToString();
-                                    grnDetails.Unitcd = row.Cells[2].Value.ToString();
-                                    grnDetails.Quantity = Convert.ToDecimal( row.Cells[3].Value.ToString());
-                                    grnDetails.Cp = Convert.ToDecimal(row.Cells[5].Value.ToString());
-                                    grnDetails.LineVatAmount = Convert.ToDecimal(row.Cells[5].Value.ToString());
-                                    grnDetails.LineNetAmount = Convert.ToDecimal(row.Cells[6].Value.ToString());
-                                    grnDetails1.Add(grnDetails);
-                                }
-                                GrnMaster grnMaster = new GrnMaster();
-                                TransactionsRepository transactions = new TransactionsRepository();
-                                grnMaster = transactions.GetGrnMaster(Convert.ToInt32(txtSn.Text));
-                                GrnReport grnReport = new GrnReport();
-                                grnReport.SetDataSource(grnDetails1);
-                                grnReport.SetParameterValue("@Company", Properties.Settings.Default.COMPANYNAME);
-                                grnReport.SetParameterValue("@Branch", Properties.Settings.Default.BRANCHNAME);
-                                grnReport.SetParameterValue("@UserName", Properties.Settings.Default.USERNAME);
-                                grnReport.SetParameterValue("@SuppCd", grnMaster.SuppCd);
-                                grnReport.SetParameterValue("@SuppNm", grnMaster.SuppNm);
-                                grnReport.SetParameterValue("@InvoiceNo", grnMaster.InvoiceNumber);
-                                grnReport.SetParameterValue("@SrNo", grnMaster.SerialNumber);
-                                grnReport.SetParameterValue("@Date", grnMaster.DateReceived);
-                                grnReport.SetParameterValue("@VatAmt", grnMaster.VatAmount);
-                                grnReport.SetParameterValue("@NetAmt", grnMaster.NetAmount);
-                                grnReport.SetParameterValue("@TotalAmt", grnMaster.VatAmount+grnMaster.NetAmount);
-                                grnReport.SetParameterValue("@UserRcvd", grnMaster.UserName);
-                                grnReport.SetParameterValue("@Comment", "Original");
-                                Form form = new frmPrint(grnReport);
-                                form.Text = "Print Grn";
-                                form.Show();
-
-                            }
-                            btngdCancel_Click(sender, e);
-
-                            btnExit.Enabled = btngdPrint.Enabled = btngdNew.Enabled = true;
-                            btngdSave.Enabled = btngdCancel.Enabled = btngdadd.Enabled = btnExit.Enabled = false;
+                            /// if  we reach here, no error has occurred;
+                            MessageBox.Show("The Grn Number is " + returned);
                         }
                         catch (Exception exe)
                         {
@@ -399,25 +346,129 @@ namespace SHOPLITE.ModalForms
                         }
 
 
+                        if ((MessageBox.Show("DO YOU WANT PRINT?", "Print?", MessageBoxButtons.YesNo, MessageBoxIcon.Question)) == DialogResult.Yes)
+                        {
+
+                            PrintMethod("ORIGINAL");
+                        }
+                        btngdCancel_Click(sender, e);
+
+                        btnExit.Enabled = btngdPrint.Enabled = btngdNew.Enabled = true;
+                        btngdSave.Enabled = btngdCancel.Enabled = btngdadd.Enabled = btnExit.Enabled = false;
                     }
-
-
                 }
                 catch (Exception exe)
                 {
-
                     //Logger.Loggermethod(exe);
                     MessageBox.Show(exe.Message, "Error Occurred.", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-
-
             }
-
         }
-    } 
+        private void PrintMethod(string Comment)
+        {
+            List<GrnDetails> grnDetails1 = new List<GrnDetails>();
+            foreach (DataGridViewRow row in dgvgd.Rows)
+            {
+                GrnDetails grnDetails = new GrnDetails();
+                grnDetails.ProdCd = row.Cells[0].Value.ToString();
+                grnDetails.ProdNm = row.Cells[1].Value.ToString();
+                grnDetails.Unitcd = row.Cells[2].Value.ToString();
+                grnDetails.Quantity = Convert.ToDecimal(row.Cells[3].Value.ToString());
+                grnDetails.Cp = Convert.ToDecimal(row.Cells[4].Value.ToString());
+                grnDetails.LineVatAmount = Convert.ToDecimal(row.Cells[5].Value.ToString());
+                grnDetails.LineNetAmount = Convert.ToDecimal(row.Cells[6].Value.ToString());
+                grnDetails1.Add(grnDetails);
+            }
+            GrnMaster grnMaster = new GrnMaster();
+            TransactionsRepository transactions = new TransactionsRepository();
+            grnMaster = transactions.GetGrnMaster(Convert.ToInt32(txtSn.Text));
+            GrnReport grnReport = new GrnReport();
+            grnReport.SetDataSource(grnDetails1);
+            grnReport.SetParameterValue("@Company", Properties.Settings.Default.COMPANYNAME);
+            grnReport.SetParameterValue("@Branch", Properties.Settings.Default.BRANCHNAME);
+            grnReport.SetParameterValue("@UserName", Properties.Settings.Default.USERNAME);
+            grnReport.SetParameterValue("@SuppCd", grnMaster.SuppCd);
+            grnReport.SetParameterValue("@SuppNm", grnMaster.SuppNm);
+            grnReport.SetParameterValue("@InvoiceNo", grnMaster.InvoiceNumber);
+            grnReport.SetParameterValue("@SrNo", grnMaster.SerialNumber);
+            grnReport.SetParameterValue("@Date", grnMaster.DateReceived);
+            grnReport.SetParameterValue("@VatAmt", grnMaster.VatAmount);
+            grnReport.SetParameterValue("@NetAmt", grnMaster.NetAmount);
+            grnReport.SetParameterValue("@TotalAmt", grnMaster.VatAmount + grnMaster.NetAmount);
+            grnReport.SetParameterValue("@UserRcvd", grnMaster.UserName);
+            grnReport.SetParameterValue("@Comment", Comment);
+            Form form = new frmPrint(grnReport);
+            form.Text = "Print Grn";
+            form.Show();
+        }
+
+        private void txtSn_Leave(object sender, EventArgs e)
+        {
+            TransactionsRepository repository = new TransactionsRepository();
+            if (String.IsNullOrEmpty(txtSn.Text))
+            {
+                return;
+            }
+            GrnMaster grnMaster = new GrnMaster();
+            grnMaster = repository.GetGrnMaster(Convert.ToInt32(txtSn.Text));
+            if (grnMaster == null)
+            {
+                MessageBox.Show("Invalid Grn Number.");
+                txtSn.Text = "";
+                txtSn.Focus();
+            }
+            else
+            {
+                txtSn.Text = grnMaster.SerialNumber.ToString();
+                txtInv.Text = grnMaster.InvoiceNumber;
+                txtgdsupcd.Text = grnMaster.SuppCd;
+                lblsupnm.Text = grnMaster.SuppNm;
+                lblNetAmt.Text = grnMaster.NetAmount.ToString();
+                lblVatAmt.Text = grnMaster.VatAmount.ToString();
+                lblTtlAmt.Text = (grnMaster.VatAmount + grnMaster.NetAmount).ToString();
+                dtgd.Value = grnMaster.DateReceived.Date;
+                try
+                {
+                    using (SqlConnection con = new SqlConnection(DbCon.connection))
+                    {
+                        SqlCommand cmd = new SqlCommand("Select * from Grndetails where GrnSrNo =@srno", con);
+                        cmd.Parameters.AddWithValue("@srno", grnMaster.SerialNumber);
+                        if (con.State == ConnectionState.Closed)
+                            con.Open();
+                        SqlDataReader rdr = cmd.ExecuteReader();
+                        dgvgd.Rows.Clear();
+                        if (rdr.HasRows)
+                        {
+                            while (rdr.Read())
+                            {
+                                dgvgd.Rows.Add(rdr["ProdCd"], rdr["ProdNm"], rdr["UnitCd"], rdr["Quantity"], rdr["CostPrice"], rdr["LineVatAmt"], rdr["LineNetAmt"]);
+                            }
+                        }
+                    }
+                    btngdPrint.Enabled = true;
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+            }
+        }
+
+        private void btngdPrint_Click(object sender, EventArgs e)
+        {
+            if (String.IsNullOrEmpty(txtSn.Text))
+            {
+                MessageBox.Show("No Records To Print");
+                return;
+            }
+            if (dgvgd.Rows.Count <= 0)
+            {
+                MessageBox.Show("No Records To Print");
+                return;
+            }
+            PrintMethod("COPY");
+        }
         #endregion
-
-
-    
+    }
 }
-

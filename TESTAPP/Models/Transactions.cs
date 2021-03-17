@@ -45,6 +45,7 @@ namespace SHOPLITE.Models
                     if (con.State == ConnectionState.Closed)
                         con.Open();
                     SqlDataReader reader = sql.ExecuteReader();
+                    
                     if (reader.HasRows)
                     {
                         while (reader.Read())
