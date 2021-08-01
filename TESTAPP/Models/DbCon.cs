@@ -9,11 +9,14 @@ namespace SHOPLITE.Models
 {
     class  DbCon
     {
-       public static string connection {
+       public static string connection 
+       {
             get 
             {
                 
-                return conn(); } }
+                return conn(); 
+            }
+       }
         /// <summary>
         /// FOR EDWARD
         /// </summary>
